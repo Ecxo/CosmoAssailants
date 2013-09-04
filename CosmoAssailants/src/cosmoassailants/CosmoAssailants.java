@@ -4,7 +4,7 @@
  */
 package cosmoassailants;
 
-import TextUI.TextUI;
+import cosmoassailants.TextUI.TextUI;
 import cosmoassailants.gamelogic.Arena;
 
 /**
@@ -17,7 +17,7 @@ public class CosmoAssailants {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Arena arena = new Arena(4);
+        Arena arena = new Arena(5);
         TextUI textUI = new TextUI(arena);
         System.out.println(textUI.printLocations());
         arena.moveObjects();

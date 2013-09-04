@@ -1,0 +1,14 @@
+
+Aihe: Cosmo Assailants
+Space Invadersin kaltainen peli, jossa pelaaja yrittää ampua vihollisia samalla väistellen vihollisen ammuksia.
+
+Käyttäjät: Pelaaja
+
+Kaikkien käyttäjien toiminnot:
+
+- Aluksen ohjaus
+- Ampuminen
+- 
+
+
+

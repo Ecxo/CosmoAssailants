@@ -13,8 +13,8 @@ public class Player implements Object {
     private int locationX;
     private int locationY;
 
-    public Player(int x) {
-        this.locationX = x;
+    public Player() {
+        this.locationX = 40;
         this.locationY = 40;
 
     }

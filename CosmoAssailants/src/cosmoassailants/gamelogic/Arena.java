@@ -12,14 +12,14 @@ import java.util.ArrayList;
  */
 public class Arena {
 
-    final int arenaHeight = 40;
-    final int arenaWidth = 40;
+    final int ARENAHEIGHT = 40;
+    final int ARENAWIDTH = 40;
     private ArrayList<Object> objects;
     private Player player;
 
     public Arena(int enemies) {
         this.objects = createEnemies(enemies);
-        this.player = new Player(20);
+        this.player = new Player();
 
     }
 
@@ -39,5 +39,9 @@ public class Arena {
         for (Object o : this.objects) {
             o.moveObject();
         }
+    }
+    
+    public Player arenaGetPlayer() {
+        return this.player;
     }
 }

@@ -1,28 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cosmoassailants;
 
+import cosmoassailants.GraphicsUI.GraphicsUI;
 import cosmoassailants.TextUI.TextUI;
 import cosmoassailants.gamelogic.Arena;
+import javax.swing.SwingUtilities;
 
-/**
- *
- * @author ptpihlaj
- */
 public class CosmoAssailants {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        Arena arena = new Arena(5);
-        TextUI textUI = new TextUI(arena);
-        System.out.println(textUI.printLocations());
-        arena.moveObjects();
-        System.out.println(textUI.printLocations());
-
-        // TODO code application logic here
+        GraphicsUI gui = new GraphicsUI();
+        SwingUtilities.invokeLater(gui);
     }
 }

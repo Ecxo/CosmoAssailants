@@ -1,5 +1,9 @@
-
+﻿
 
 4.9.2013 14:00- 17:00
 
 Tein repositorion, tutkin Git-käyttöä ja aloitan projektin. Hieman sovelluslogiikkaa ja tekstikäyttöliittymän aloittelua.
+
+5.9.2013 19:00-20:20
+
+Miten ne grafiikat toimivatkaan? Opetellaan seuraavalla kerralla lisää.

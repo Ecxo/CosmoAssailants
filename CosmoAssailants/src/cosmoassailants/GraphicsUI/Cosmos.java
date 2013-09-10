@@ -4,32 +4,48 @@
  */
 package cosmoassailants.GraphicsUI;
 
+import cosmoassailants.gamelogic.Laser;
 import cosmoassailants.gamelogic.Player;
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.util.ArrayList;
 
 /**
  *
- * @author petri
+ * @author ptpihlaj
  */
-public class Cosmos extends JPanel {
-    
-    private PlayerShip playerShip;
-    
+public class Cosmos {
+
+    private Player player;
+    private ArrayList<Laser> lasers;
+
     public Cosmos() {
-        this.playerShip = new PlayerShip();
+        this.player = new Player();
+        this.lasers = new ArrayList<Laser>();
+    }
+
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    public ArrayList<Laser> getLasers() {
+        return this.lasers;
         
     }
     
-    public void paint(Graphics g) {
-        super.setBackground(Color.BLACK);
-        super.paint(g);
-        
-        
-        
+    public void shootLaser() {
+        this.lasers.add(new Laser(this.player.getLocationX()));
+        System.out.println(this.lasers);
     }
     
-    
+
+    public void movePlayerRight() {
+    }
+
+    public void updateGame() {
+        if (this.lasers.isEmpty() == false) {
+            for (Laser laser : this.lasers) {
+                laser.travel();
+            }
+        }
+    }
 }
+

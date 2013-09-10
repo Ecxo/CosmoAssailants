@@ -14,16 +14,18 @@ public class Player implements Object {
     private int locationY;
 
     public Player() {
-        this.locationX = 40;
-        this.locationY = 40;
+        this.locationX = 400;
+        this.locationY = 700;
 
     }
 
+    @Override
     public int getLocationX() {
         return this.locationX;
 
     }
 
+    @Override
     public int getLocationY() {
         return this.locationY;
     }
@@ -32,10 +34,29 @@ public class Player implements Object {
     }
 
     public void movePlayerRight() {
-        this.locationX++;
+        if (hitEdgeRight() == false) {
+        this.locationX += 20;
+        }
+        
     }
 
     public void movePlayerLeft() {
-        this.locationY--;
+        if (hitEdgeLeft() == false) {
+        this.locationX -= 20;
+        }
+    }
+    
+    public boolean hitEdgeRight() {
+        if (this.locationX == 700) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean hitEdgeLeft() {
+        if (this.locationX == 100) {
+            return true;
+        }
+        return false;
     }
 }

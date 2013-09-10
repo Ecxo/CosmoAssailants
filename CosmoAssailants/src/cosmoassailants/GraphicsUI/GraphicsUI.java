@@ -4,8 +4,12 @@
  */
 package cosmoassailants.GraphicsUI;
 
-import java.awt.*;
-import javax.swing.*;
+import cosmoassailants.Engine.Controls;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -14,29 +18,45 @@ import javax.swing.*;
 public class GraphicsUI implements Runnable {
 
     private JFrame frame;
+    private Window window;
     private Cosmos cosmos;
 
-    public GraphicsUI() {
+    public GraphicsUI(Cosmos cosmos) {
+        this.cosmos = cosmos;
     }
 
-    @Override
     public void run() {
-        frame = new JFrame("Cosmo Assailants");
-
-        frame.setPreferredSize(new Dimension(500, 500));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame = new JFrame("Cosmo Invaders");
+        frame.setPreferredSize(new Dimension(800, 800));
         frame.setResizable(false);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         createComponents(frame.getContentPane());
         
+        Controls control = new Controls(cosmos.getPlayer(), this.cosmos);
+        frame.addKeyListener(control);
+        
+
+
         frame.pack();
         frame.setVisible(true);
-        
     }
 
     private void createComponents(Container container) {
-        this.cosmos = new Cosmos();
-        container.add(cosmos);
-        
-        
+        this.window = new Window(this.cosmos);
+        container.add(window);
+
+
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public void reDraw() {
+        if (window == null) {
+            return;
+        }
+
+        window.repaint();
     }
 }

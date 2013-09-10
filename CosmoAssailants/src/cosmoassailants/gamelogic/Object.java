@@ -12,7 +12,7 @@ public interface Object {
     
     public int getLocationX();
     public int getLocationY();
-    public void moveObject();
+
     
     
     

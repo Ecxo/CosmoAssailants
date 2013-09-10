@@ -7,3 +7,7 @@ Tein repositorion, tutkin Git-käyttöä ja aloitan projektin. Hieman sovelluslo
 5.9.2013 19:00-20:20
 
 Miten ne grafiikat toimivatkaan? Opetellaan seuraavalla kerralla lisää.
+
+10.9.2013 18-21:50
+
+Poistin sekavia luokkia. Graafinen käyttöliittymä alkaa jo sujua vähän paremmin ja pelimoottori saatiin käyntiin.

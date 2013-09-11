@@ -6,12 +6,14 @@ public class EnemyAssailant implements Object {
     private int locationY;
     private boolean movingRight;
     private int allowedToMove; // to slow down enemy movement
+    private boolean isAlive;
 
     public EnemyAssailant(int x, int y) {
         this.locationX = x;
         this.locationY = y;
         movingRight = true;
         allowedToMove = 1;
+        this.isAlive = true;
 
     }
 
@@ -53,6 +55,7 @@ public class EnemyAssailant implements Object {
 
     public boolean hitEdgeRight() {
         if (this.locationX == 700) {
+            moveDown();
             return true;
         }
         return false;
@@ -60,13 +63,14 @@ public class EnemyAssailant implements Object {
 
     public boolean hitEdgeLeft() {
         if (this.locationX == 100) {
+            moveDown();
             return true;
         }
         return false;
     }
 
     public boolean allowedToMove() { //to slow down enemy movement
-        if (allowedToMove == 10) {
+        if (allowedToMove == 1) {
             allowedToMove = 1;
             return true;
         } else {
@@ -76,5 +80,17 @@ public class EnemyAssailant implements Object {
 
 
         }
+    }
+
+    public void hasDied() {
+        this.isAlive = false;
+    }
+
+    public boolean isAlive() {
+        return this.isAlive;
+    }
+
+    public void moveDown() {
+        this.locationY +=20;
     }
 }

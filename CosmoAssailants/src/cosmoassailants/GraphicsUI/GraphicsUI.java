@@ -26,7 +26,7 @@ public class GraphicsUI implements Runnable {
     }
 
     public void run() {
-        frame = new JFrame("Cosmo Invaders");
+        frame = new JFrame("Cosmo Assailants");
         frame.setPreferredSize(new Dimension(800, 800));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

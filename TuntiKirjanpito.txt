@@ -11,3 +11,7 @@ Miten ne grafiikat toimivatkaan? Opetellaan seuraavalla kerralla lisää.
 10.9.2013 18-21:50
 
 Poistin sekavia luokkia. Graafinen käyttöliittymä alkaa jo sujua vähän paremmin ja pelimoottori saatiin käyntiin.
+
+11.9.2013 14:15-15
+
+Viholliset kuolevat laserista, viholliset voivat liikkua myös alaspäin.

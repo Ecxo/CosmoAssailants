@@ -19,6 +19,7 @@ public class GameEngine extends Thread {
     private Cosmos cosmos;
     private boolean running;
 
+
     public GameEngine(GraphicsUI gui, Cosmos cosmos) {
         this.gui = gui;
         this.cosmos = cosmos;
@@ -40,7 +41,7 @@ public class GameEngine extends Thread {
 
     private void waiting() {
         try {
-            Thread.sleep(100);
+            Thread.sleep(1000/30);
         } catch (InterruptedException ex) {
             System.out.println("Something wrong with Waiting()...");
             System.exit(0);

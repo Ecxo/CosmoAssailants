@@ -8,6 +8,7 @@ import cosmoassailants.GraphicsUI.Cosmos;
 import cosmoassailants.gamelogic.Player;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Timer;
 
 /**
  *
@@ -17,10 +18,12 @@ public class Controls implements KeyListener {
 
     private Player player;
     private Cosmos cosmos;
+    private FireRateTimer playerTimer;
 
     public Controls(Player player, Cosmos cosmos) {
         this.player = player;
         this.cosmos = cosmos;
+        this.playerTimer = new FireRateTimer();
     }
 
     @Override
@@ -40,9 +43,12 @@ public class Controls implements KeyListener {
             System.out.println("Go left!");
 
         }
-        
+
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            this.cosmos.shootLaser();
+            if (playerTimer.playerShotAllowed() == true) {
+                this.cosmos.shootLaser();
+            }
+
         }
 
     }

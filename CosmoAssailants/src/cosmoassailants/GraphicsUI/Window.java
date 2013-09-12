@@ -4,6 +4,7 @@
  */
 package cosmoassailants.GraphicsUI;
 
+import cosmoassailants.gamelogic.Enemy;
 import cosmoassailants.gamelogic.EnemyAssailant;
 import cosmoassailants.gamelogic.Laser;
 import java.awt.Color;
@@ -41,9 +42,9 @@ public class Window extends JPanel {
 
         g.setColor(Color.BLUE);
 
-        for (EnemyAssailant enemy : cosmos.getEnemies()) {
+        for (Enemy enemy : cosmos.getEnemies()) {
             if (enemy.isAlive() == true) {
-                g.fillRect(enemy.getLocationX(), enemy.getLocationY(), 30, 30);
+                g.fill3DRect(enemy.getLocationX()+5, enemy.getLocationY(), 20, 20, true);
             }
         }
 

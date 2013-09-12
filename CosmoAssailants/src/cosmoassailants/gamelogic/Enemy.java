@@ -8,11 +8,17 @@ package cosmoassailants.gamelogic;
  *
  * @author ptpihlaj
  */
-public interface Object {
+public interface Enemy {
     
     public int getLocationX();
     public int getLocationY();
     public void move();
+
+    public boolean isAlive();
+
+    public void hasDied();
+    
+    public void setMoveSpeed(int s);
     
 
     

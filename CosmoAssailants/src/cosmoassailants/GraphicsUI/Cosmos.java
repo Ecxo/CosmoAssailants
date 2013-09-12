@@ -4,6 +4,7 @@
  */
 package cosmoassailants.GraphicsUI;
 
+import cosmoassailants.gamelogic.Enemy;
 import cosmoassailants.gamelogic.EnemyAssailant;
 import cosmoassailants.gamelogic.Laser;
 import cosmoassailants.gamelogic.Player;
@@ -17,13 +18,13 @@ public class Cosmos {
 
     private Player player;
     private ArrayList<Laser> lasers;
-    private ArrayList<EnemyAssailant> enemies;
+    private ArrayList<Enemy> enemies;
 
     public Cosmos() {
         this.player = new Player();
-        this.lasers = new ArrayList<Laser>();
-        this.enemies = new ArrayList<EnemyAssailant>();
-        this.enemies.add(new EnemyAssailant(600, 100));
+        this.lasers = new ArrayList<>();
+        this.enemies = new ArrayList<>();
+        this.enemies.add(new EnemyAssailant(440, 100));
         this.enemies.add(new EnemyAssailant(400, 100));
         this.enemies.add(new EnemyAssailant(300, 100));
         this.enemies.add(new EnemyAssailant(200, 100));
@@ -50,14 +51,14 @@ public class Cosmos {
             }
 
         
-            for (EnemyAssailant enemy : this.enemies) {
+            for (Enemy enemy : this.enemies) {
                 enemy.move();
 
             }
         }
     
 
-    public ArrayList<EnemyAssailant> getEnemies() {
+    public ArrayList<Enemy> getEnemies() {
         return this.enemies;
     }
 }

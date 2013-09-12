@@ -1,12 +1,13 @@
 package cosmoassailants.gamelogic;
 
-public class EnemyAssailant implements Object {
+public class EnemyAssailant implements Enemy {
 
     private int locationX;
     private int locationY;
     private boolean movingRight;
     private int allowedToMove; // to slow down enemy movement
     private boolean isAlive;
+    private int allowedToMoveMax = 5; //how many updates between enemy move
 
     public EnemyAssailant(int x, int y) {
         this.locationX = x;
@@ -70,7 +71,7 @@ public class EnemyAssailant implements Object {
     }
 
     public boolean allowedToMove() { //to slow down enemy movement
-        if (allowedToMove == 1) {
+        if (allowedToMove == allowedToMoveMax) {
             allowedToMove = 1;
             return true;
         } else {
@@ -81,6 +82,13 @@ public class EnemyAssailant implements Object {
 
         }
     }
+    
+    public void setMoveSpeed(int s) {
+        this.allowedToMoveMax = s;
+        
+    }
+    
+
 
     public void hasDied() {
         this.isAlive = false;

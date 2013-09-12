@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Laser {
     private int locationX;
     private int locationY;
-    private ArrayList<EnemyAssailant> enemies;
+    private ArrayList<Enemy> enemies;
     
     public Laser(int x, Cosmos cosmos) {
         this.locationX = x;
@@ -36,7 +36,7 @@ public class Laser {
     }
 
     private void laserEnemyCheck() {
-        for (EnemyAssailant enemy : this.enemies) {
+        for (Enemy enemy : this.enemies) {
             if (enemy.getLocationX() == laserX() && enemy.getLocationY() == this.locationY && enemy.isAlive()) {
                 enemy.hasDied();
                 System.out.println("Enemy dies!");

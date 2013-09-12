@@ -40,7 +40,7 @@ public class EnemyAssailantTest {
     }
 
     @Test
-    public void assailantMoves() {
+    public void assailantCanMove() {
         Enemy enemyTest = new EnemyAssailant(400, 100) {
         };
         int enemyStartX = enemyTest.getLocationX();
@@ -49,5 +49,35 @@ public class EnemyAssailantTest {
         enemyTest.move();
         enemyTest.move();
         assertEquals(enemyStartX + 20 + 20, enemyTest.getLocationX());
+    }
+
+    @Test
+    public void assailantCanNotMoveThroughWall() {
+        Cosmos cosmos = new Cosmos();
+        Enemy enemy = cosmos.getEnemies().get(0);
+        enemy.setMoveSpeed(1);
+        int enemyLocation = enemy.getLocationX();
+        int distancetoEdge = Math.abs(enemyLocation - 700);
+        System.out.println(distancetoEdge);
+        distancetoEdge = distancetoEdge / 20;
+        int distancetoEdge2 = distancetoEdge;
+        int distancetoEdge3 = distancetoEdge;
+        System.out.println(distancetoEdge);
+
+        while (distancetoEdge != -0) {
+            enemy.move();
+            distancetoEdge--;
+        }
+        assertEquals(700, enemy.getLocationX());
+
+        enemy.move();
+
+        assertEquals(700, enemy.getLocationX());
+
+        enemy.move();
+        
+        assertEquals(680, enemy.getLocationX());
+
+
     }
 }

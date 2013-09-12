@@ -33,13 +33,13 @@ public class Controls implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            this.player.movePlayerRight();
+            this.player.movePlayer(1);
             System.out.println("Go right!");
 
         }
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            this.player.movePlayerLeft();
+            this.player.movePlayer(0);
             System.out.println("Go left!");
 
         }

@@ -7,6 +7,7 @@ package cosmoassailants.GraphicsUI;
 import cosmoassailants.gamelogic.Enemy;
 import cosmoassailants.gamelogic.EnemyAssailant;
 import cosmoassailants.gamelogic.Laser;
+import cosmoassailants.gamelogic.LaserPlayer;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
@@ -33,10 +34,16 @@ public class Window extends JPanel {
         g.fillOval(cosmos.getPlayer().getLocationX(), cosmos.getPlayer().getLocationY(), 30, 30);
 
 
-        g.setColor(Color.GREEN);
 
         for (Laser laser : cosmos.getLasers()) {
+            g.setColor(Color.GREEN);
+            if (laser.isHostile() == true) {
+            g.setColor(Color.MAGENTA);
             g.fillRect(laser.laserX() + 10, laser.laserY(), 10, 20);
+            
+        }
+            g.fillRect(laser.laserX() + 10, laser.laserY(), 10, 20);
+            
         }
 
 

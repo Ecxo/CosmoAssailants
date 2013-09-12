@@ -7,6 +7,8 @@ package cosmoassailants.GraphicsUI;
 import cosmoassailants.gamelogic.Enemy;
 import cosmoassailants.gamelogic.EnemyAssailant;
 import cosmoassailants.gamelogic.Laser;
+import cosmoassailants.gamelogic.LaserEnemy;
+import cosmoassailants.gamelogic.LaserPlayer;
 import cosmoassailants.gamelogic.Player;
 import java.util.ArrayList;
 
@@ -24,11 +26,17 @@ public class Cosmos {
         this.player = new Player();
         this.lasers = new ArrayList<>();
         this.enemies = new ArrayList<>();
-        this.enemies.add(new EnemyAssailant(440, 100));
-        this.enemies.add(new EnemyAssailant(400, 100));
-        this.enemies.add(new EnemyAssailant(300, 100));
+        this.enemies.add(new EnemyAssailant(100, 100));
         this.enemies.add(new EnemyAssailant(200, 100));
-        this.enemies.add(new EnemyAssailant(300, 200));
+        this.enemies.add(new EnemyAssailant(300, 100));
+        this.enemies.add(new EnemyAssailant(400, 100));
+        this.enemies.add(new EnemyAssailant(500, 100));
+        this.enemies.add(new EnemyAssailant(600, 100));
+        this.enemies.add(new EnemyAssailant(700, 100));
+        this.enemies.add(new EnemyAssailant(100, 200));
+        this.enemies.add(new EnemyAssailant(700, 200));
+        this.enemies.add(new EnemyAssailant(600, 200));
+        this.enemies.add(new EnemyAssailant(200, 200));
     }
 
     public Player getPlayer() {
@@ -41,22 +49,27 @@ public class Cosmos {
     }
 
     public void shootLaser() {
-        this.lasers.add(new Laser(this.player.getLocationX(), this));
+        this.lasers.add(new LaserPlayer(this.player.getLocationX(), this));
         System.out.println(this.lasers.size());
     }
 
     public void updateGame() {
-            for (Laser laser : this.lasers) {
-                laser.travel();
+//        for (Laser laser : this.lasers) {
+//            laser.travel();
+//        }
+
+
+        for (Enemy enemy : this.enemies) {
+            enemy.move();
+            if (enemy.enemyCanShoot() && enemy.isAlive()) {
+                this.lasers.add(new LaserEnemy(enemy, player));
             }
 
-        
-            for (Enemy enemy : this.enemies) {
-                enemy.move();
-
-            }
         }
-    
+        for (Laser laser : this.lasers) {
+            laser.travel();
+        }
+    }
 
     public ArrayList<Enemy> getEnemies() {
         return this.enemies;

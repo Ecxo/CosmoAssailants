@@ -12,10 +12,12 @@ public class Player {
 
     private int locationX;
     private int locationY;
+    private boolean playerAlive;
 
     public Player() {
         this.locationX = 400;
         this.locationY = 700;
+        playerAlive = true;
 
     }
 
@@ -28,17 +30,15 @@ public class Player {
         return this.locationY;
     }
 
-    public void movePlayerRight() {
-        if (hitEdgeRight() == false) {
+    public void movePlayer(int direction) {     
+        //1 = right, 0 = left
+        if (direction == 1 && !hitEdgeRight()) {
             this.locationX += 20;
         }
-
-    }
-
-    public void movePlayerLeft() {
-        if (hitEdgeLeft() == false) {
-            this.locationX -= 20;
+        if (direction == 0 && !hitEdgeLeft()) {
+            this.locationX -=20;
         }
+
     }
 
     public boolean hitEdgeRight() {
@@ -54,4 +54,12 @@ public class Player {
         }
         return false;
     }
+
+    public void setAsDead() {
+        this.playerAlive = false;
+    }
+    
+    public boolean playerAlive() {
+    return this.playerAlive;
+}
 }

@@ -4,27 +4,28 @@
  */
 package cosmoassailants.Engine;
 
+import java.util.Random;
+
 /**
  *
  * @author ptpihlaj
  */
 public class FireRateTimer {
-    
+
     private long previousShot;
-    final long PLAYERFIRERATE = 400; // milliseconds between shots;
-    
+    private long previousEnemyShot;
+    final int PLAYERFIRERATE = 350; // milliseconds between shots;
+  
     public FireRateTimer() {
         this.previousShot = System.currentTimeMillis();
-        
+
     }
-    
+
     public boolean playerShotAllowed() {
-        if (System.currentTimeMillis()-this.previousShot > 300)  {
+        if (System.currentTimeMillis() - this.previousShot > PLAYERFIRERATE) {
             this.previousShot = System.currentTimeMillis();
             return true;
         }
         return false;
     }
-    
-    
 }

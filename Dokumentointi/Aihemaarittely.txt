@@ -1,0 +1,14 @@
+
+Aihe: Cosmo Assailants
+Space Invadersin kaltainen peli, jossa pelaaja yrittää ampua vihollisia samalla väistellen vihollisen ammuksia. Viholliset ampuvat satunnaisesti ja ampumistodennäköisyys ja vihollisten määrä kasvaa pelaajan päästessä seuraavalle tasolle tuhottuaan kaikki viholliset. Pistelasku.
+
+Käyttäjät: Pelaaja
+
+Kaikkien käyttäjien toiminnot:
+
+- Aluksen ohjaus
+- Ampuminen
+- Ennätystuloksen nimen syöttö ja katselu
+
+
+

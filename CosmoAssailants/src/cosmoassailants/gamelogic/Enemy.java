@@ -19,6 +19,9 @@ public interface Enemy {
     public void hasDied();
     
     public void setMoveSpeed(int s);
+    public boolean enemyCanShoot();
+    public boolean allowedToMove();
+    
     
 
     

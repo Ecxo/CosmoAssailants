@@ -1,5 +1,8 @@
 package cosmoassailants.gamelogic;
 
+import cosmoassailants.Engine.FireRateTimer;
+import java.util.Random;
+
 public class EnemyAssailant implements Enemy {
 
     private int locationX;
@@ -7,7 +10,10 @@ public class EnemyAssailant implements Enemy {
     private boolean movingRight;
     private int allowedToMove; // to slow down enemy movement
     private boolean isAlive;
-    private int allowedToMoveMax = 5; //how many updates between enemy move
+    private int allowedToMoveMax = 8; //how many updates between enemy moves
+    private FireRateTimer enemyTimer;
+    private Random enemyShotRandomizer;
+    private double enemyShotChance; // How often the enemy shoots;
 
     public EnemyAssailant(int x, int y) {
         this.locationX = x;
@@ -15,6 +21,9 @@ public class EnemyAssailant implements Enemy {
         movingRight = true;
         allowedToMove = 1;
         this.isAlive = true;
+        enemyTimer = new FireRateTimer();
+        this.enemyShotRandomizer = new Random();
+        this.enemyShotChance = 0.01;  
 
     }
 
@@ -82,13 +91,11 @@ public class EnemyAssailant implements Enemy {
 
         }
     }
-    
+
     public void setMoveSpeed(int s) {
         this.allowedToMoveMax = s;
-        
-    }
-    
 
+    }
 
     public void hasDied() {
         this.isAlive = false;
@@ -99,6 +106,17 @@ public class EnemyAssailant implements Enemy {
     }
 
     public void moveDown() {
-        this.locationY +=20;
+        this.locationY += 40;
+    }
+
+    public boolean enemyCanShoot() {
+        double random = enemyShotRandomizer.nextDouble();
+        if (random < this.enemyShotChance) {
+            return true;
+        }
+        return false;
+        
+        
+
     }
 }

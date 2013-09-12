@@ -4,46 +4,15 @@
  */
 package cosmoassailants.gamelogic;
 
-import cosmoassailants.GraphicsUI.Cosmos;
-import java.util.ArrayList;
-
 /**
  *
  * @author ptpihlaj
  */
-public class Laser {
-    private int locationX;
-    private int locationY;
-    private ArrayList<Enemy> enemies;
+public interface Laser {
     
-    public Laser(int x, Cosmos cosmos) {
-        this.locationX = x;
-        this.locationY = 700;
-        this.enemies = cosmos.getEnemies();
-    }
-    
-    public int laserX() {
-        return locationX;
-    }
-    
-    public int laserY() {
-        return locationY;
-    }
-
-    public void travel() {
-        this.locationY -= 20;
-        laserEnemyCheck();
-    }
-
-    private void laserEnemyCheck() {
-        for (Enemy enemy : this.enemies) {
-            if (enemy.getLocationX() == laserX() && enemy.getLocationY() == this.locationY && enemy.isAlive()) {
-                enemy.hasDied();
-                System.out.println("Enemy dies!");
-            }
-        }
-        
-    }
-    
+    public int laserX();
+    public int laserY();
+    public void travel();
+    public boolean isHostile();
     
 }

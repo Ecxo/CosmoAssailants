@@ -5,7 +5,7 @@
 package CosmoAssailantTests;
 
 import cosmoassailants.GraphicsUI.Cosmos;
-import cosmoassailants.gamelogic.Laser;
+import cosmoassailants.gamelogic.LaserPlayer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

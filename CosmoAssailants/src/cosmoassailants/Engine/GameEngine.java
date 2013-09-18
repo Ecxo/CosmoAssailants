@@ -31,7 +31,7 @@ public class GameEngine extends Thread {
 
     @Override
     public void run() {
-        while (running = true) {
+        while (running = true && this.cosmos.getPlayer().playerAlive()) {
             cosmos.updateGame();
             gui.reDraw();
             waiting();
@@ -43,7 +43,6 @@ public class GameEngine extends Thread {
         try {
             Thread.sleep(1000/30);
         } catch (InterruptedException ex) {
-            System.out.println("Something wrong with Waiting()...");
             System.exit(0);
         }
     }

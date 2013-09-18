@@ -19,7 +19,3 @@ Viholliset kuolevat laserista, viholliset voivat liikkua myös alaspäin. Tehty 
 12.9.2013 16-21
 
 Viholliset osaavat ampua ja vihollisen laserit voivat osua pelaajaan. Pelaajan ampumisnopeutta rajoitettu. Pelaajan metodeita siistitty hieman. JUnit testejä pelaajalle, laserille ja viholliselle.
-
-18.9.2013 14-18
-
-Pistelasku lisätty. Pelin voi hävitä. Level vaihtuu kun viholliset tuhottu, vihollisten määrä ja ampumatiheys lisääntyy. Pientä siistimistä.

@@ -45,7 +45,7 @@ public class LaserTest {
     @Test
     public void laserCanMove() {
         Cosmos cosmos = new Cosmos();
-        LaserPlayer laser = new LaserPlayer(400, cosmos);
+        LaserPlayer laser = new LaserPlayer(400, 700, cosmos);
 
         assertEquals(400, laser.laserX());
         assertEquals(700, laser.laserY());
@@ -61,8 +61,9 @@ public class LaserTest {
     public void laserKillsEnemy() {
         Cosmos cosmos = new Cosmos();
         int firstEnemyX = cosmos.getEnemies().get(0).getLocationX();
+        int firstEnemyY = cosmos.getEnemies().get(0).getLocationY();
 
-        LaserPlayer laser = new LaserPlayer(firstEnemyX, cosmos);
+        LaserPlayer laser = new LaserPlayer(cosmos.getEnemies().get(0).getLocationX(), cosmos.getPlayer().getLocationY(), cosmos);
 
         assertEquals(true, cosmos.getEnemies().get(0).isAlive());
 

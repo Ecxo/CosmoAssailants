@@ -32,10 +32,9 @@ public class GraphicsUI implements Runnable {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         createComponents(frame.getContentPane());
-        
+
         Controls control = new Controls(cosmos.getPlayer(), this.cosmos);
         frame.addKeyListener(control);
-        
 
 
         frame.pack();
@@ -43,9 +42,9 @@ public class GraphicsUI implements Runnable {
     }
 
     private void createComponents(Container container) {
+
         this.window = new Window(this.cosmos);
         container.add(window);
-
 
     }
 
@@ -57,7 +56,6 @@ public class GraphicsUI implements Runnable {
         if (window == null) {
             return;
         }
-
         window.repaint();
     }
 }

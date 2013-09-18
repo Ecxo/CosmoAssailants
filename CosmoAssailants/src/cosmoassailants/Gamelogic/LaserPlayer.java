@@ -15,11 +15,13 @@ public class LaserPlayer implements Laser {
     private int locationX;
     private int locationY;
     private ArrayList<Enemy> enemies;
+    private Cosmos cosmos;
     
     public LaserPlayer(int x, int y, Cosmos cosmos) {
         this.locationX = x;
         this.locationY = y;
         this.enemies = cosmos.getEnemies();
+        this.cosmos = cosmos;
     }
     
     @Override
@@ -42,7 +44,9 @@ public class LaserPlayer implements Laser {
         for (Enemy enemy : this.enemies) {
             if (enemy.getLocationX() == laserX() && enemy.getLocationY() == this.locationY && enemy.isAlive()) {
                 enemy.hasDied();
-                System.out.println("Enemy dies!");
+                this.cosmos.getScoring().increaseScore();
+                System.out.println("Score: "+cosmos.getScoring().getScore());
+                
             }
         }
         

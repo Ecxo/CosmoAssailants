@@ -8,7 +8,6 @@ import cosmoassailants.GraphicsUI.Cosmos;
 import cosmoassailants.Gamelogic.Player;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Timer;
 
 /**
  *
@@ -34,13 +33,12 @@ public class Controls implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             this.player.movePlayer(1);
-            System.out.println("Go right!");
 
         }
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             this.player.movePlayer(0);
-            System.out.println("Go left!");
+
 
         }
 

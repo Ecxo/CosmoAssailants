@@ -45,18 +45,18 @@ public class PlayerTest {
     public void playerCanMoveBothDirections() {
 
         assertEquals(400, player.getLocationX());
-        assertEquals(700, player.getLocationY());
+        assertEquals(500, player.getLocationY());
 
         player.movePlayer(1);
 
         assertEquals(420, player.getLocationX());
-        assertEquals(700, player.getLocationY());
+        assertEquals(500, player.getLocationY());
 
         player.movePlayer(0);
         player.movePlayer(0);
 
         assertEquals(380, player.getLocationX());
-        assertEquals(700, player.getLocationY());
+        assertEquals(500, player.getLocationY());
 
     }
 
@@ -64,14 +64,14 @@ public class PlayerTest {
     public void playerCanNotMoveThroughEdgeRight() {
 
         assertEquals(400, player.getLocationX());
-        assertEquals(700, player.getLocationY());
+        assertEquals(500, player.getLocationY());
 
         for (int i = 1; i < 30; i++) {
             player.movePlayer(1);
         }
 
         assertEquals(700, player.getLocationX());
-        assertEquals(700, player.getLocationY());
+        assertEquals(500, player.getLocationY());
 
 
 
@@ -81,14 +81,14 @@ public class PlayerTest {
     public void playerCanNotMoveThroughEdgeLeft() {
 
         assertEquals(400, player.getLocationX());
-        assertEquals(700, player.getLocationY());
+        assertEquals(500, player.getLocationY());
 
         for (int i = 1; i < 30; i++) {
             player.movePlayer(0);
         }
 
         assertEquals(100, player.getLocationX());
-        assertEquals(700, player.getLocationY());
+        assertEquals(500, player.getLocationY());
 
 
 

@@ -15,8 +15,8 @@ public class Player {
     private boolean playerAlive;
 
     public Player() {
-        this.locationX = 400;
-        this.locationY = 500;
+        this.locationX = gameValues.ARENA_PLAYERSTARTPOS;
+        this.locationY = gameValues.ARENA_BOTTOM_Y;
         playerAlive = true;
 
     }
@@ -33,10 +33,10 @@ public class Player {
     public void movePlayer(int direction) {     
         //1 = right, 0 = left
         if (direction == 1 && !hitEdgeRight()) {
-            this.locationX += 20;
+            this.locationX += gameValues.ARENA_STEPSIZE;
         }
         if (direction == 0 && !hitEdgeLeft()) {
-            this.locationX -=20;
+            this.locationX -=gameValues.ARENA_STEPSIZE;
         }
 
     }

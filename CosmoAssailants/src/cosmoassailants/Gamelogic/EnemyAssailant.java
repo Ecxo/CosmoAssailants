@@ -10,7 +10,7 @@ public class EnemyAssailant implements Enemy {
     private boolean movingRight;
     private int allowedToMove; // to slow down enemy movement
     private boolean isAlive;
-    private int allowedToMoveMax = 8; //how many updates between enemy moves
+    private int allowedToMoveMax = 10; //how many updates between enemy moves
     private FireRateTimer enemyTimer;
     private Random enemyShotRandomizer;
     private double enemyShotChance; // How often the enemy shoots;
@@ -23,7 +23,7 @@ public class EnemyAssailant implements Enemy {
         this.isAlive = true;
         enemyTimer = new FireRateTimer();
         this.enemyShotRandomizer = new Random();
-        this.enemyShotChance = 0.01;  
+        this.enemyShotChance = 0.001;  
 
     }
 
@@ -99,6 +99,7 @@ public class EnemyAssailant implements Enemy {
 
     public void hasDied() {
         this.isAlive = false;
+        
     }
 
     public boolean isAlive() {
@@ -106,7 +107,7 @@ public class EnemyAssailant implements Enemy {
     }
 
     public void moveDown() {
-        this.locationY += 40;
+        this.locationY += gameValues.ARENA_STEPSIZE*2;
     }
 
     public boolean enemyCanShoot() {
@@ -118,5 +119,9 @@ public class EnemyAssailant implements Enemy {
         
         
 
+    }
+    
+    public void setEnemyShootingChance(double chance) {
+        this.enemyShotChance = chance;
     }
 }

@@ -5,7 +5,7 @@
 package cosmoassailants.Engine;
 
 import cosmoassailants.GraphicsUI.Cosmos;
-import cosmoassailants.gamelogic.Player;
+import cosmoassailants.Gamelogic.Player;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Timer;

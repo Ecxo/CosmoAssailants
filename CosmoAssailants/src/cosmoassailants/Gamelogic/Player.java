@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cosmoassailants.gamelogic;
+package cosmoassailants.Gamelogic;
 
 /**
  *
@@ -16,7 +16,7 @@ public class Player {
 
     public Player() {
         this.locationX = 400;
-        this.locationY = 700;
+        this.locationY = 500;
         playerAlive = true;
 
     }

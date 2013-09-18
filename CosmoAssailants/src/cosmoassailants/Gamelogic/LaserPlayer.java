@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cosmoassailants.gamelogic;
+package cosmoassailants.Gamelogic;
 
 import cosmoassailants.GraphicsUI.Cosmos;
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ public class LaserPlayer implements Laser {
     private int locationY;
     private ArrayList<Enemy> enemies;
     
-    public LaserPlayer(int x, Cosmos cosmos) {
+    public LaserPlayer(int x, int y, Cosmos cosmos) {
         this.locationX = x;
-        this.locationY = 700;
+        this.locationY = y;
         this.enemies = cosmos.getEnemies();
     }
     

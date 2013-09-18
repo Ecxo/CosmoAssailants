@@ -4,12 +4,12 @@
  */
 package cosmoassailants.GraphicsUI;
 
-import cosmoassailants.gamelogic.Enemy;
-import cosmoassailants.gamelogic.EnemyAssailant;
-import cosmoassailants.gamelogic.Laser;
-import cosmoassailants.gamelogic.LaserEnemy;
-import cosmoassailants.gamelogic.LaserPlayer;
-import cosmoassailants.gamelogic.Player;
+import cosmoassailants.Gamelogic.Enemy;
+import cosmoassailants.Gamelogic.EnemyAssailant;
+import cosmoassailants.Gamelogic.Laser;
+import cosmoassailants.Gamelogic.LaserEnemy;
+import cosmoassailants.Gamelogic.LaserPlayer;
+import cosmoassailants.Gamelogic.Player;
 import java.util.ArrayList;
 
 /**
@@ -49,7 +49,7 @@ public class Cosmos {
     }
 
     public void shootLaser() {
-        this.lasers.add(new LaserPlayer(this.player.getLocationX(), this));
+        this.lasers.add(new LaserPlayer(this.player.getLocationX(), this.player.getLocationY(), this));
         System.out.println(this.lasers.size());
     }
 

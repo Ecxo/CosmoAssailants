@@ -4,10 +4,10 @@
  */
 package cosmoassailants.GraphicsUI;
 
-import cosmoassailants.gamelogic.Enemy;
-import cosmoassailants.gamelogic.EnemyAssailant;
-import cosmoassailants.gamelogic.Laser;
-import cosmoassailants.gamelogic.LaserPlayer;
+import cosmoassailants.Gamelogic.Enemy;
+import cosmoassailants.Gamelogic.EnemyAssailant;
+import cosmoassailants.Gamelogic.Laser;
+import cosmoassailants.Gamelogic.LaserPlayer;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;

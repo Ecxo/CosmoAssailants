@@ -5,11 +5,11 @@ package CosmoAssailantTests;
  * and open the template in the editor.
  */
 import cosmoassailants.GraphicsUI.Cosmos;
-import cosmoassailants.gamelogic.Enemy;
-import cosmoassailants.gamelogic.EnemyAssailant;
-import cosmoassailants.gamelogic.LaserEnemy;
-import cosmoassailants.gamelogic.LaserPlayer;
-import cosmoassailants.gamelogic.Player;
+import cosmoassailants.Gamelogic.Enemy;
+import cosmoassailants.Gamelogic.EnemyAssailant;
+import cosmoassailants.Gamelogic.LaserEnemy;
+import cosmoassailants.Gamelogic.LaserPlayer;
+import cosmoassailants.Gamelogic.Player;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -5,8 +5,8 @@
 package CosmoAssailantTests;
 
 import cosmoassailants.GraphicsUI.Cosmos;
-import cosmoassailants.gamelogic.Enemy;
-import cosmoassailants.gamelogic.EnemyAssailant;
+import cosmoassailants.Gamelogic.Enemy;
+import cosmoassailants.Gamelogic.EnemyAssailant;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

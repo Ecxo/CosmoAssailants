@@ -10,6 +10,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import cosmoassailants.Gamelogic.gameValues;
 
 /**
  *
@@ -27,7 +28,7 @@ public class GraphicsUI implements Runnable {
 
     public void run() {
         frame = new JFrame("Cosmo Assailants");
-        frame.setPreferredSize(new Dimension(800, 800));
+        frame.setPreferredSize(new Dimension(cosmoassailants.Gamelogic.gameValues.ARENA_SIZE_X, cosmoassailants.Gamelogic.gameValues.ARENA_SIZE_Y));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         createComponents(frame.getContentPane());

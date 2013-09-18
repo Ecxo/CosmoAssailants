@@ -4,7 +4,7 @@
  */
 package CosmoAssailantTests;
 
-import cosmoassailants.gamelogic.Player;
+import cosmoassailants.Gamelogic.Player;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package cosmoassailants.gamelogic;
+package cosmoassailants.Gamelogic;
 
 import cosmoassailants.Engine.FireRateTimer;
 import java.util.Random;

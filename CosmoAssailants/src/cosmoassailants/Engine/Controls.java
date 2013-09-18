@@ -48,6 +48,10 @@ public class Controls implements KeyListener {
             }
 
         }
+        
+        if (e.getKeyCode() == KeyEvent.VK_P) {
+            this.cosmos.cheatButton();
+        }
 
     }
 

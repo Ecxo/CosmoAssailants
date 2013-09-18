@@ -117,6 +117,8 @@ public class Window extends JPanel {
         Font scoreFont = new Font("Arial Black", Font.PLAIN, 40);
         g.setFont(scoreFont);
         g.drawString("Game over! You lose!", 100, 100);
+        g.drawString("Your score: "+ this.cosmos.getScoring().getScore(), 100, 200);
+        g.drawString("You reached level : "+ this.cosmos.getLevel().getLevel(), 100, 300);
     }
 
     private void drawLevel(Graphics g) {

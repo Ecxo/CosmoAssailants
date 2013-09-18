@@ -25,8 +25,8 @@ public class Scoring {
         return this.score;
     }
 
-    public void loseScore() {
+    public void loseScoreShot() {
         this.score -= 10;
     }
     
-}
+    }

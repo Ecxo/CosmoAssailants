@@ -27,14 +27,16 @@ public class GraphicsUI implements Runnable {
     }
 
     public void run() {
-        if (this.cosmos.getPlayer().playerAlive()) {
+
         frame = new JFrame("Cosmo Assailants");
         frame.setPreferredSize(new Dimension(cosmoassailants.Gamelogic.gameValues.ARENA_SIZE_X, cosmoassailants.Gamelogic.gameValues.ARENA_SIZE_Y));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-
+        if (this.cosmos.getPlayer().playerAlive()) {
         createComponents(frame.getContentPane());
+        }
+        
 
 
 
@@ -43,13 +45,11 @@ public class GraphicsUI implements Runnable {
         setKeyListener();
         frame.pack();
         frame.setVisible(true);
-        }
-        
 
 
     }
 
-    private void createComponents(Container container) {
+private void createComponents(Container container) {
 
         this.window = new Window(this.cosmos);
         container.add(window);

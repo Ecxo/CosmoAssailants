@@ -37,6 +37,7 @@ public class ClickListener implements ActionListener {
             System.out.println("new game");
             cosmos.restartCosmos();
             frame.dispose();
+            
 
 
             

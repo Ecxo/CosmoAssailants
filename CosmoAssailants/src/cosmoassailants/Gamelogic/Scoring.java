@@ -35,5 +35,9 @@ public class Scoring {
     public HighScore getHighScore() {
         return this.highScore;
     }
+
+    public void reset() {
+        this.score = 100;
+    }
     
     }

@@ -38,6 +38,11 @@ public class GameEngine extends Thread {
             waiting();
 
         }
+
+        
+        
+       
+        
     }
 
     private void waiting() {

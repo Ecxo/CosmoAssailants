@@ -60,7 +60,7 @@ public class DifficultyLevel {
 
             EnemyAssailant createdEnemy = new EnemyAssailant(x, y);
             createdEnemy.setEnemyShootingChance(this.shootingChance);
-            
+
             list.add(createdEnemy);
 
             System.out.println(list.size());
@@ -80,7 +80,7 @@ public class DifficultyLevel {
     public void increaseDifficulty() {
         this.levelNumber++;
         this.numberofEnemies += 1;
-        this.shootingChance += 0.003; 
+        this.shootingChance += 0.003;
 
     }
 
@@ -94,5 +94,16 @@ public class DifficultyLevel {
 
     public int getEnemyNumber() {
         return this.numberofEnemies;
+    }
+
+    public void reset() {
+        this.cosmos = cosmos;
+        levelNumber = 1;
+        shootingChance = 0.005;
+        numberofEnemies = 4;
+        this.randomEnemies = new ArrayList<Enemy>();
+        this.randomEnemies.addAll(createListEnemies(numberofEnemies));
+
+
     }
 }

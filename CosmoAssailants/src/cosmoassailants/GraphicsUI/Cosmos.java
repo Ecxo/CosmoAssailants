@@ -40,15 +40,15 @@ public class Cosmos {
     }
 
     public void restartCosmos() {
-        this.player = new Player();
-        this.lasers = new ArrayList<>();
-        this.score = new Scoring();
+        player.reset();
+        lasers.clear();
+        score.reset();
 
-        this.level = new DifficultyLevel(this);
-        this.enemies = new ArrayList<Enemy>();
-        this.enemies.addAll(level.getListEnemies());
-        engine.getUI().setKeyListener();
-        this.engine.getUI().getWindow().setCosmos(this);
+        level.reset();
+        enemies.clear();
+        enemies.addAll(level.getListEnemies());
+        //engine.getUI().setKeyListener();
+        //engine.getUI().getWindow().setCosmos(this);
 
 
     }

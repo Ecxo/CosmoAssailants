@@ -30,13 +30,13 @@ public class Player {
         return this.locationY;
     }
 
-    public void movePlayer(int direction) {     
+    public void movePlayer(int direction) {
         //1 = right, 0 = left
         if (direction == 1 && !hitEdgeRight()) {
             this.locationX += gameValues.ARENA_STEPSIZE;
         }
         if (direction == 0 && !hitEdgeLeft()) {
-            this.locationX -=gameValues.ARENA_STEPSIZE;
+            this.locationX -= gameValues.ARENA_STEPSIZE;
         }
 
     }
@@ -58,12 +58,18 @@ public class Player {
     public void setAsDead() {
         this.playerAlive = false;
     }
-    
+
     public boolean playerAlive() {
-    return this.playerAlive;
-}
+        return this.playerAlive;
+    }
 
     public void setPlayerAlive() {
         this.playerAlive = true;
+    }
+
+    public void reset() {
+        this.locationX = gameValues.ARENA_PLAYERSTARTPOS;
+        this.locationY = gameValues.ARENA_BOTTOM_Y;
+        playerAlive = true;
     }
 }

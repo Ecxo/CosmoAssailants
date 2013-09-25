@@ -18,4 +18,21 @@ Viholliset kuolevat laserista, viholliset voivat liikkua myös alaspäin. Tehty 
 
 12.9.2013 16-21
 
-Viholliset osaavat ampua satunnaisesti ja laserit voivat osua pelaajaan. Pelaajan ampumisnopeutta rajoitettu. Pelaajan metodeita siistitty hieman. JUnit testejä pelaajalle, laserille ja viholliselle.
+Viholliset osaavat ampua ja vihollisen laserit voivat osua pelaajaan. Pelaajan ampumisnopeutta rajoitettu. Pelaajan metodeita siistitty hieman. JUnit testejä pelaajalle, laserille ja viholliselle.
+
+18.9.2013 14-18
+
+Pistelasku lisätty. Pelin voi hävitä. Level vaihtuu kun viholliset tuhottu, vihollisten määrä ja ampumatiheys lisääntyy. Pientä siistimistä.
+
+18.9.2013 21-22
+
+Oma ennätys 10380 pistettä. Lisätty huijausnappi.
+
+19.9.2013 19-20
+
+Pari testiä ja uusi luokkakaavio.
+
+25.9.2013 13-20
+
+Mietitty huipputulostiedostoa. Pelin voi käynnistää uudestaan häviön jälkeen.
+

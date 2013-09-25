@@ -33,7 +33,7 @@ public class HighScore {
     }
 
     public void writeScore(String playername) {
-        
+
         try {
             FileWriter fwriter = new FileWriter(scores, true);
             PrintWriter write = new PrintWriter(fwriter);
@@ -43,6 +43,11 @@ public class HighScore {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
+    }
+
+    public String getBestScore() {
+        return null;
 
     }
 }

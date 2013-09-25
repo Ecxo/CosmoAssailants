@@ -14,7 +14,7 @@ import javax.swing.JFrame;
  * @author ptpihlaj
  */
 public class ClickListener implements ActionListener {
-    
+
     private Cosmos cosmos;
     private JFrame frame;
 
@@ -23,26 +23,30 @@ public class ClickListener implements ActionListener {
         NEWGAME,
         SAVERECORD
     }
-    
+
     public ClickListener(Cosmos cosmos, JFrame frame) {
         this.cosmos = cosmos;
         this.frame = frame;
-        
-        
+
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand() == Actions.NEWGAME.name()) {
             System.out.println("new game");
-            cosmos.restartCosmos();
             frame.dispose();
+            cosmos.getEngine().getUI().getWindow().resetScorePanel();
+
+            cosmos.restartCosmos();
             
 
 
-            
 
-            
+
+
+
+
         }
     }
 }

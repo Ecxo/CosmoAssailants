@@ -32,12 +32,16 @@ public class GameEngine extends Thread {
 
     @Override
     public void run() {
-        while (running = true && this.cosmos.getPlayer().playerAlive()) {
+        while (running = true) {
             cosmos.updateGame();
             gui.reDraw();
             waiting();
 
+
         }
+        
+        System.out.println("Stopped");
+        run();
 
         
         

@@ -43,8 +43,8 @@ public class Window extends JPanel {
 
 
     }
-    
-    public void setCosmos (Cosmos cosmos) {
+
+    public void setCosmos(Cosmos cosmos) {
         this.cosmos = cosmos;
     }
 
@@ -87,7 +87,7 @@ public class Window extends JPanel {
         drawScore(g);
 
         drawLevel(g);
-        
+
 
 
 
@@ -135,14 +135,17 @@ public class Window extends JPanel {
     }
 
     private void gameOver(Graphics g) {
-        
+
         g.setColor(Color.RED);
         Font scoreFont = new Font("Arial Black", Font.PLAIN, 40);
         g.setFont(scoreFont);
         g.drawString("Game over! You lose!", 100, 100);
         g.drawString("Your score: " + this.cosmos.getScoring().getScore(), 100, 200);
         g.drawString("You reached level : " + this.cosmos.getLevel().getLevel(), 100, 300);
-        highScoreScreen();
+        if (this.scorePanel == null) {
+            highScoreScreen();
+        }
+
 
     }
 
@@ -211,5 +214,9 @@ public class Window extends JPanel {
 
         container.add(panel);
 
+    }
+
+    public void resetScorePanel() {
+        this.scorePanel = null;
     }
 }

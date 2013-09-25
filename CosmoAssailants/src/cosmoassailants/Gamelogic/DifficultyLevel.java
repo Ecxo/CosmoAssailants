@@ -19,7 +19,6 @@ public class DifficultyLevel {
     private int levelNumber;
     private Cosmos cosmos;
     private ArrayList<Enemy> randomEnemies;
-    private int ARENA_STEPSIZE;
 
     public DifficultyLevel(Cosmos cosmos) {
         this.cosmos = cosmos;
@@ -81,7 +80,7 @@ public class DifficultyLevel {
     public void increaseDifficulty() {
         this.levelNumber++;
         this.numberofEnemies += 1;
-        this.shootingChance += 0.001;
+        this.shootingChance += 0.003; 
 
     }
 

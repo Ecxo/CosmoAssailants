@@ -10,9 +10,12 @@ package cosmoassailants.Gamelogic;
  */
 public class Scoring {
     private int score;
+    private HighScore highScore;
     
     public Scoring() {
         this.score = 100;
+        highScore = new HighScore(this);
+        
         
     }
     
@@ -27,6 +30,10 @@ public class Scoring {
 
     public void loseScoreShot() {
         this.score -= 10;
+    }
+    
+    public HighScore getHighScore() {
+        return this.highScore;
     }
     
     }

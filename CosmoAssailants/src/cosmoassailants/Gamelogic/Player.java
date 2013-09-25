@@ -62,4 +62,8 @@ public class Player {
     public boolean playerAlive() {
     return this.playerAlive;
 }
+
+    public void setPlayerAlive() {
+        this.playerAlive = true;
+    }
 }

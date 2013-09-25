@@ -18,12 +18,13 @@ public class GameEngine extends Thread {
     private GraphicsUI gui;
     private Cosmos cosmos;
     private boolean running;
-
+    public GameEngine engine;
 
     public GameEngine(GraphicsUI gui, Cosmos cosmos) {
         this.gui = gui;
         this.cosmos = cosmos;
         this.running = true;
+        cosmos.setEngine(this);
 
 
 
@@ -41,13 +42,20 @@ public class GameEngine extends Thread {
 
     private void waiting() {
         try {
-            Thread.sleep(1000/30);
+            Thread.sleep(1000 / 30);
         } catch (InterruptedException ex) {
             System.exit(0);
         }
     }
-    
-    private Cosmos getCosmos() {
+
+    public Cosmos getCosmos() {
         return this.cosmos;
     }
+
+    public GraphicsUI getUI() {
+        return this.gui;
+
+    }
+
+
 }

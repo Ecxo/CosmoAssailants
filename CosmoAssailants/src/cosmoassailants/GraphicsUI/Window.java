@@ -4,14 +4,27 @@
  */
 package cosmoassailants.GraphicsUI;
 
+import cosmoassailants.Engine.ClickListener;
+import cosmoassailants.Engine.Controls;
+import cosmoassailants.Engine.InputScanner;
 import cosmoassailants.Gamelogic.Enemy;
 import cosmoassailants.Gamelogic.EnemyAssailant;
 import cosmoassailants.Gamelogic.Laser;
 import cosmoassailants.Gamelogic.LaserPlayer;
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -20,9 +33,13 @@ import javax.swing.JPanel;
 public class Window extends JPanel {
 
     private Cosmos cosmos;
+    private InputScanner scanner;
+    private JFrame scorePanel;
+    private ActionListener listener;
 
     public Window(Cosmos cosmos) {
         this.cosmos = cosmos;
+        scanner = new InputScanner(this);
 
 
     }
@@ -66,6 +83,7 @@ public class Window extends JPanel {
         drawScore(g);
 
         drawLevel(g);
+        
 
 
 
@@ -113,12 +131,15 @@ public class Window extends JPanel {
     }
 
     private void gameOver(Graphics g) {
+        
         g.setColor(Color.RED);
         Font scoreFont = new Font("Arial Black", Font.PLAIN, 40);
         g.setFont(scoreFont);
         g.drawString("Game over! You lose!", 100, 100);
-        g.drawString("Your score: "+ this.cosmos.getScoring().getScore(), 100, 200);
-        g.drawString("You reached level : "+ this.cosmos.getLevel().getLevel(), 100, 300);
+        g.drawString("Your score: " + this.cosmos.getScoring().getScore(), 100, 200);
+        g.drawString("You reached level : " + this.cosmos.getLevel().getLevel(), 100, 300);
+        highScoreScreen(); 
+
     }
 
     private void drawLevel(Graphics g) {
@@ -126,6 +147,65 @@ public class Window extends JPanel {
         Font scoreFont = new Font("Arial Black", Font.PLAIN, 20);
         g.setFont(scoreFont);
         g.drawString("Level: " + this.cosmos.getLevel().getLevel(), 700, 50);
+
+    }
+
+    public void highScoreScreen() {
+        scorePanel = new JFrame("Scores");
+
+
+        scorePanel.setPreferredSize(new Dimension(400, 400));
+        scorePanel.setResizable(false);
+        scorePanel.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        scoreScreenComponents(scorePanel);
+
+
+
+        scorePanel.pack();
+        scorePanel.setVisible(true);
+
+    }
+
+    private void scoreScreenComponents(Container container) {
+        JPanel panel = new JPanel();
+        GridLayout grid = new GridLayout(10, 2);
+        panel.setLayout(grid);
+
+        listener = new ClickListener(this.cosmos, this.scorePanel);
+
+
+        panel.add(new JLabel("Hall of Fame"));
+
+
+        panel.add(new JLabel("2"));
+        panel.add(new JLabel("3"));
+        panel.add(new JLabel("4"));
+        panel.add(new JLabel("5"));
+        panel.add(new JLabel("6"));
+        panel.add(new JLabel("7"));
+        panel.add(new JLabel("8"));
+        panel.add(new JLabel("9"));
+        panel.add(new JLabel("10"));
+        panel.add(new JLabel("11"));
+        panel.add(new JLabel("12"));
+        panel.add(new JLabel("13"));
+        panel.add(new JLabel("14"));
+        panel.add(new JLabel("New Record!"));
+        panel.add(new JLabel("16"));
+        panel.add(new JTextField("Enter name here"));
+        panel.add(new JButton("Save"));
+
+        JButton newGame = new JButton("New Game");
+        newGame.setActionCommand(ClickListener.Actions.NEWGAME.name());
+        newGame.addActionListener(listener);
+
+
+        panel.add(newGame);
+
+        panel.add(new JLabel("20"));
+
+
+        container.add(panel);
 
     }
 }

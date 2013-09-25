@@ -14,10 +14,9 @@ public class CosmoAssailants {
 
         GraphicsUI ui = new GraphicsUI(cosmos);
         SwingUtilities.invokeLater(ui);
-        
+
         GameEngine engine = new GameEngine(ui, cosmos);
         engine.start();
-        
 
 
     }

@@ -43,6 +43,10 @@ public class Window extends JPanel {
 
 
     }
+    
+    public void setCosmos (Cosmos cosmos) {
+        this.cosmos = cosmos;
+    }
 
     public void paint(Graphics g) {
         //super.paint(g);
@@ -138,7 +142,7 @@ public class Window extends JPanel {
         g.drawString("Game over! You lose!", 100, 100);
         g.drawString("Your score: " + this.cosmos.getScoring().getScore(), 100, 200);
         g.drawString("You reached level : " + this.cosmos.getLevel().getLevel(), 100, 300);
-        highScoreScreen(); 
+        highScoreScreen();
 
     }
 

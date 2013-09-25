@@ -48,6 +48,8 @@ public class Cosmos {
         this.enemies = new ArrayList<Enemy>();
         this.enemies.addAll(level.getListEnemies());
         engine.getUI().setKeyListener();
+        this.engine.getUI().getWindow().setCosmos(this);
+
 
     }
 
@@ -67,27 +69,27 @@ public class Cosmos {
     }
 
     public void updateGame() {
-        if (player.playerAlive() == true) {
 
 
 
-            for (Enemy enemy : this.enemies) {
-                enemy.move();
-                if (enemy.enemyCanShoot() && enemy.isAlive()) {
-                    this.lasers.add(new LaserEnemy(enemy, player));
-                }
 
-            }
-            for (Laser laser : this.lasers) {
-                laser.travel();
+        for (Enemy enemy : this.enemies) {
+            enemy.move();
+            if (enemy.enemyCanShoot() && enemy.isAlive()) {
+                this.lasers.add(new LaserEnemy(enemy, player));
             }
 
-            while (enemiesLeft() == false) {
-                level.increaseDifficulty();
-                this.enemies = level.createListEnemies(level.getEnemyNumber());
-
-            }
         }
+        for (Laser laser : this.lasers) {
+            laser.travel();
+        }
+
+        while (enemiesLeft() == false) {
+            level.increaseDifficulty();
+            this.enemies = level.createListEnemies(level.getEnemyNumber());
+
+        }
+
 
 
 
@@ -127,4 +129,6 @@ public class Cosmos {
     public GameEngine getEngine() {
         return this.engine;
     }
+
+
 }

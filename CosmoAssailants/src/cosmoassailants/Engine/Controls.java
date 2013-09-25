@@ -33,11 +33,13 @@ public class Controls implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             this.player.movePlayer(1);
+            System.out.println("Right");
 
         }
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             this.player.movePlayer(0);
+            System.out.println("Left");
 
 
         }
@@ -48,7 +50,7 @@ public class Controls implements KeyListener {
             }
 
         }
-        
+
         if (e.getKeyCode() == KeyEvent.VK_P) {
             this.cosmos.cheatButton();
         }

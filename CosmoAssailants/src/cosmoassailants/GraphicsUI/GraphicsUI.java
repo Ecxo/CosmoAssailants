@@ -65,6 +65,10 @@ public class GraphicsUI implements Runnable {
     public JFrame getFrame() {
         return frame;
     }
+    
+    public Window getWindow() {
+    return this.window;
+}
 
     public void reDraw() {
         if (window == null) {

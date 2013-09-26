@@ -16,7 +16,7 @@ public class DifficultyLevel {
 
     private int numberofEnemies;
     private double shootingChance = 0.005;
-    ;
+    private double shootingChanceIncrease = 0.005;
     private int levelNumber;
     private Cosmos cosmos;
     private ArrayList<Enemy> randomEnemies;
@@ -102,7 +102,7 @@ public class DifficultyLevel {
     public void increaseDifficulty() {
         this.levelNumber++;
         this.numberofEnemies += 1;
-        this.shootingChance += 0.003;
+        this.shootingChance += shootingChanceIncrease;
 
     }
 

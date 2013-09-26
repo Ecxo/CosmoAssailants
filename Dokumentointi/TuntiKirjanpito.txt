@@ -36,3 +36,5 @@ Pari testiä ja uusi luokkakaavio.
 
 Mietitty huipputulostiedostoa. Pelin voi käynnistää uudestaan häviön jälkeen.
 
+26.9.2013 18:30-19
+

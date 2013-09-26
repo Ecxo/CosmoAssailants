@@ -8,7 +8,7 @@ import cosmoassailants.GraphicsUI.Window;
 import java.util.Scanner;
 
 /**
- *
+ * Reads player typing
  * @author ptpihlaj
  */
 public class InputScanner {

@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 /**
- *
+ * Listens mouse clicks in the end game screen
  * @author ptpihlaj
  */
 public class ClickListener implements ActionListener {
@@ -30,6 +30,11 @@ public class ClickListener implements ActionListener {
 
 
     }
+    
+    /**
+     * Actions based on which button clicked in end game screen.
+     * @param e 
+     */
 
     @Override
     public void actionPerformed(ActionEvent e) {

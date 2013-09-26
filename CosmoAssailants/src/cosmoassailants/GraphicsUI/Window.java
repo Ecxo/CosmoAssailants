@@ -27,7 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 /**
- *
+ * Contents of the game window
  * @author ptpihlaj
  */
 public class Window extends JPanel {
@@ -47,6 +47,15 @@ public class Window extends JPanel {
     public void setCosmos(Cosmos cosmos) {
         this.cosmos = cosmos;
     }
+    
+    /**
+     * Draws the game world if player alive, if player is dead draws
+     * gameOver screen.
+     * 
+     * @see #gameRunning(graphics)
+     * @see #gameOver(graphics)
+     * @param g 
+     */
 
     public void paint(Graphics g) {
         //super.paint(g);
@@ -72,6 +81,13 @@ public class Window extends JPanel {
 
 
     }
+    
+    
+
+    /**
+     * Paints the game world.
+     * @param g 
+     */
 
     public void gameRunning(Graphics g) {
         setBackground(Color.black);
@@ -96,6 +112,11 @@ public class Window extends JPanel {
 
 
     }
+    
+    /**
+     * Paints the lasers in the game world
+     * @param g 
+     */
 
     private void drawLasers(Graphics g) {
         for (Laser laser : cosmos.getLasers()) {
@@ -110,6 +131,11 @@ public class Window extends JPanel {
         }
 
     }
+    
+    /**
+     * Draws the enemies in the game world
+     * @param g 
+     */
 
     private void drawEnemies(Graphics g) {
         g.setColor(Color.BLUE);
@@ -121,11 +147,21 @@ public class Window extends JPanel {
 
         }
     }
+    
+    /**
+     * Draws the player in the game world.
+     * @param g 
+     */
 
     private void drawPlayer(Graphics g) {
         g.setColor(Color.RED);
         g.fillOval(cosmos.getPlayer().getLocationX(), cosmos.getPlayer().getLocationY(), 30, 30);
     }
+    
+    /**
+     * Draws the score.
+     * @param g 
+     */
 
     private void drawScore(Graphics g) {
         g.setColor(Color.RED);
@@ -133,6 +169,11 @@ public class Window extends JPanel {
         g.setFont(scoreFont);
         g.drawString("Score: " + this.cosmos.getScoring().getScore(), 50, 50);
     }
+    
+    /**
+     * Draws the gameOver screen.
+     * @param g 
+     */
 
     private void gameOver(Graphics g) {
 
@@ -148,6 +189,11 @@ public class Window extends JPanel {
 
 
     }
+    
+    /**
+     * Draws the level number
+     * @param g
+     */
 
     private void drawLevel(Graphics g) {
         g.setColor(Color.RED);
@@ -156,6 +202,10 @@ public class Window extends JPanel {
         g.drawString("Level: " + this.cosmos.getLevel().getLevel(), 700, 50);
 
     }
+    
+    /**
+     * Opens a new window.
+     */
 
     public void highScoreScreen() {
         scorePanel = new JFrame("Scores");
@@ -172,6 +222,11 @@ public class Window extends JPanel {
         scorePanel.setVisible(true);
 
     }
+    
+    /**
+     * Creates components of the highScoreScreen window.
+     * @param container 
+     */
 
     private void scoreScreenComponents(Container container) {
         JPanel panel = new JPanel();

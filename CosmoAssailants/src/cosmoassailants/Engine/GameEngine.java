@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Game engine, updates the game at 30 frames per second.
  * @author ptpihlaj
  */
 public class GameEngine extends Thread {
@@ -29,6 +29,10 @@ public class GameEngine extends Thread {
 
 
     }
+    
+    /**
+     * Updates the game, should stop running unless player quits.
+     */
 
     @Override
     public void run() {
@@ -48,6 +52,11 @@ public class GameEngine extends Thread {
        
         
     }
+    
+    /**
+     * Controls how often the game updates.
+     */
+    
 
     private void waiting() {
         try {

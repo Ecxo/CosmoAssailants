@@ -8,7 +8,7 @@ import cosmoassailants.GraphicsUI.Cosmos;
 import java.util.ArrayList;
 
 /**
- *
+ * Lasers shot by the player
  * @author ptpihlaj
  */
 public class LaserPlayer implements Laser {
@@ -16,6 +16,16 @@ public class LaserPlayer implements Laser {
     private int locationY;
     private ArrayList<Enemy> enemies;
     private Cosmos cosmos;
+    
+    
+    /**
+     * Creates a laser at the designated coordinates. Knows cosmos
+     * to retrieve enemies.
+     * 
+     * @param x
+     * @param y
+     * @param cosmos to retrieve enemies
+     */
     
     public LaserPlayer(int x, int y, Cosmos cosmos) {
         this.locationX = x;
@@ -35,6 +45,11 @@ public class LaserPlayer implements Laser {
     }
 
     @Override
+    
+    /**
+     * moves laser upwards, checks if enemies at the same location.
+     * 
+     */
     public void travel() {
         this.locationY -= 20;
         laserEnemyCheck();

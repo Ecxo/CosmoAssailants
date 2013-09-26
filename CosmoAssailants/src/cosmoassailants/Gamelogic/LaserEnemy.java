@@ -8,7 +8,7 @@ import cosmoassailants.GraphicsUI.Cosmos;
 import java.util.ArrayList;
 
 /**
- *
+ * Lasers shot by enemies
  * @author ptpihlaj
  */
 public class LaserEnemy implements Laser {
@@ -17,6 +17,14 @@ public class LaserEnemy implements Laser {
     private int locationY;
     private ArrayList<Enemy> enemies;
     private Player player;
+    
+    /**
+     * Creates an enemy laser. Creates the laser at the enemy location
+     * and knows the player object.
+     * 
+     * @param enemy
+     * @param player 
+     */
 
     public LaserEnemy(Enemy enemy, Player player) {
         this.locationX = enemy.getLocationX();
@@ -36,10 +44,20 @@ public class LaserEnemy implements Laser {
     }
 
     @Override
+    /**
+     * Moves player upwards, then checks if player is in the same spot.
+     * 
+     */
     public void travel() {
         this.locationY += 5;
         laserPlayerCheck();
     }
+    
+    /**
+     * Checks if the laser is in the same spot as the player, sets player dead
+     * if both in the same place.
+     * 
+     */
 
     private void laserPlayerCheck() {
         if (this.locationX == player.getLocationX() && this.locationY == player.getLocationY()) {

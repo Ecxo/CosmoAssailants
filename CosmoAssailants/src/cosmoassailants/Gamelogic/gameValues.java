@@ -5,7 +5,7 @@
 package cosmoassailants.Gamelogic;
 
 /**
- *
+ * Contains values used in game arena.
  * @author ptpihlaj
  */
 public class gameValues {

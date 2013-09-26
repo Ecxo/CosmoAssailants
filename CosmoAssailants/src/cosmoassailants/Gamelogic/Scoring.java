@@ -5,7 +5,7 @@
 package cosmoassailants.Gamelogic;
 
 /**
- *
+ * Counts and increases player score
  * @author ptpihlaj
  */
 public class Scoring {
@@ -18,6 +18,9 @@ public class Scoring {
         
         
     }
+    
+
+    
     
     public void increaseScore() {
         this.score += 50;

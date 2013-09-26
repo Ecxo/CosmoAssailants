@@ -18,7 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Not finished
+ * 
  * @author ptpihlaj
  */
 public class HighScore {

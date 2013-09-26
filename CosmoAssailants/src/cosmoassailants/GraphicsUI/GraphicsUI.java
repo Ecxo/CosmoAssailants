@@ -13,7 +13,7 @@ import javax.swing.WindowConstants;
 import cosmoassailants.Gamelogic.gameValues;
 
 /**
- *
+ * GraphicsUI
  * @author ptpihlaj
  */
 public class GraphicsUI implements Runnable {
@@ -25,6 +25,9 @@ public class GraphicsUI implements Runnable {
     public GraphicsUI(Cosmos cosmos) {
         this.cosmos = cosmos;
     }
+    /**
+     * Creates the game window
+     */
 
     public void run() {
 

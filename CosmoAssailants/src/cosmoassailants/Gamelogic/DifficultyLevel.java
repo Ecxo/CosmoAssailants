@@ -8,7 +8,8 @@ import cosmoassailants.GraphicsUI.Cosmos;
 import java.util.ArrayList;
 
 /**
- *
+ * Creates lists of enemies and sets their shooting speed and amount
+ * 
  * @author ptpihlaj
  */
 public class DifficultyLevel {
@@ -19,6 +20,14 @@ public class DifficultyLevel {
     private int levelNumber;
     private Cosmos cosmos;
     private ArrayList<Enemy> randomEnemies;
+    
+    /**
+     * Constructor that sets initial difficulty related values
+     * 
+     * 
+     * @param cosmos 
+     */
+    
 
     public DifficultyLevel(Cosmos cosmos) {
         this.cosmos = cosmos;
@@ -39,6 +48,13 @@ public class DifficultyLevel {
 
     }
 
+    /**
+     * Creates an ArrayList<Enemy> with the specified number of enemies.
+     *
+     * @param enemies number of enemies to generate for the list.
+     *
+     * @return ArrayList<Enemy> containing specified number of enemies
+     */
     public ArrayList<Enemy> createListEnemies(int enemies) {
         ArrayList<Enemy> list = new ArrayList<>();
 
@@ -77,6 +93,12 @@ public class DifficultyLevel {
 
     }
 
+    /**
+     * Increases enemy shooting change by preset amount Increases level count by
+     * 1 Increases number of enemies by 1
+     *
+     *
+     */
     public void increaseDifficulty() {
         this.levelNumber++;
         this.numberofEnemies += 1;
@@ -96,6 +118,10 @@ public class DifficultyLevel {
         return this.numberofEnemies;
     }
 
+    /**
+     * Resets all difficulty values to initial values
+     * 
+     */
     public void reset() {
         this.cosmos = cosmos;
         levelNumber = 1;

@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 
 /**
  * Listens mouse clicks in the end game screen
+ *
  * @author ptpihlaj
  */
 public class ClickListener implements ActionListener {
@@ -21,7 +22,7 @@ public class ClickListener implements ActionListener {
     public enum Actions {
 
         NEWGAME,
-        SAVERECORD
+        SAVESCORE
     }
 
     public ClickListener(Cosmos cosmos, JFrame frame) {
@@ -30,12 +31,12 @@ public class ClickListener implements ActionListener {
 
 
     }
-    
+
     /**
      * Actions based on which button clicked in end game screen.
-     * @param e 
+     *
+     * @param e
      */
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand() == Actions.NEWGAME.name()) {
@@ -44,13 +45,17 @@ public class ClickListener implements ActionListener {
             cosmos.getEngine().getUI().getWindow().resetScorePanel();
 
             cosmos.restartCosmos();
+        }
+
+        if (e.getActionCommand() == Actions.SAVESCORE.name()) {
             
+            String name = cosmos.getEngine().getUI().getWindow().getPlayerTextField().getText();
 
+            this.cosmos.getScoring().getHighScore().writeScore(name);
 
-
-
-
-
+            frame.dispose();
+            cosmos.getEngine().getUI().getWindow().resetScorePanel();
+            cosmos.restartCosmos();
 
         }
     }

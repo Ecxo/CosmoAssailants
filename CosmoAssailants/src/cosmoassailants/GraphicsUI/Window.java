@@ -28,6 +28,7 @@ import javax.swing.WindowConstants;
 
 /**
  * Contents of the game window
+ *
  * @author ptpihlaj
  */
 public class Window extends JPanel {
@@ -36,6 +37,7 @@ public class Window extends JPanel {
     private InputScanner scanner;
     private JFrame scorePanel;
     private ActionListener listener;
+    private JTextField playerName;
 
     public Window(Cosmos cosmos) {
         this.cosmos = cosmos;
@@ -47,16 +49,15 @@ public class Window extends JPanel {
     public void setCosmos(Cosmos cosmos) {
         this.cosmos = cosmos;
     }
-    
+
     /**
-     * Draws the game world if player alive, if player is dead draws
-     * gameOver screen.
-     * 
+     * Draws the game world if player alive, if player is dead draws gameOver
+     * screen.
+     *
      * @see #gameRunning(graphics)
      * @see #gameOver(graphics)
-     * @param g 
+     * @param g
      */
-
     public void paint(Graphics g) {
         //super.paint(g);
 
@@ -71,24 +72,24 @@ public class Window extends JPanel {
             gameOver(g);
         }
 
-
-
-
-
         getToolkit().sync();
 
 
 
 
+
+
+
+
+
+
     }
-    
-    
 
     /**
      * Paints the game world.
-     * @param g 
+     *
+     * @param g
      */
-
     public void gameRunning(Graphics g) {
         setBackground(Color.black);
 
@@ -112,12 +113,12 @@ public class Window extends JPanel {
 
 
     }
-    
+
     /**
      * Paints the lasers in the game world
-     * @param g 
+     *
+     * @param g
      */
-
     private void drawLasers(Graphics g) {
         for (Laser laser : cosmos.getLasers()) {
             g.setColor(Color.GREEN);
@@ -131,12 +132,12 @@ public class Window extends JPanel {
         }
 
     }
-    
+
     /**
      * Draws the enemies in the game world
-     * @param g 
+     *
+     * @param g
      */
-
     private void drawEnemies(Graphics g) {
         g.setColor(Color.BLUE);
 
@@ -147,34 +148,34 @@ public class Window extends JPanel {
 
         }
     }
-    
+
     /**
      * Draws the player in the game world.
-     * @param g 
+     *
+     * @param g
      */
-
     private void drawPlayer(Graphics g) {
         g.setColor(Color.RED);
         g.fillOval(cosmos.getPlayer().getLocationX(), cosmos.getPlayer().getLocationY(), 30, 30);
     }
-    
+
     /**
      * Draws the score.
-     * @param g 
+     *
+     * @param g
      */
-
     private void drawScore(Graphics g) {
         g.setColor(Color.RED);
         Font scoreFont = new Font("Arial Black", Font.PLAIN, 20);
         g.setFont(scoreFont);
         g.drawString("Score: " + this.cosmos.getScoring().getScore(), 50, 50);
     }
-    
+
     /**
      * Draws the gameOver screen.
-     * @param g 
+     *
+     * @param g
      */
-
     private void gameOver(Graphics g) {
 
         g.setColor(Color.RED);
@@ -189,12 +190,12 @@ public class Window extends JPanel {
 
 
     }
-    
+
     /**
      * Draws the level number
+     *
      * @param g
      */
-
     private void drawLevel(Graphics g) {
         g.setColor(Color.RED);
         Font scoreFont = new Font("Arial Black", Font.PLAIN, 20);
@@ -202,11 +203,10 @@ public class Window extends JPanel {
         g.drawString("Level: " + this.cosmos.getLevel().getLevel(), 700, 50);
 
     }
-    
+
     /**
      * Opens a new window.
      */
-
     public void highScoreScreen() {
         scorePanel = new JFrame("Scores");
 
@@ -222,49 +222,61 @@ public class Window extends JPanel {
         scorePanel.setVisible(true);
 
     }
-    
+
     /**
      * Creates components of the highScoreScreen window.
-     * @param container 
+     *
+     * @param container
      */
-
     private void scoreScreenComponents(Container container) {
         JPanel panel = new JPanel();
         GridLayout grid = new GridLayout(10, 2);
         panel.setLayout(grid);
+        panel.setBackground(Color.lightGray);
 
         listener = new ClickListener(this.cosmos, this.scorePanel);
 
 
-        panel.add(new JLabel("Hall of Fame"));
+        panel.add(new JLabel("Hall of Fame", JLabel.CENTER));
 
 
-        panel.add(new JLabel("2"));
-        panel.add(new JLabel("3"));
-        panel.add(new JLabel("4"));
-        panel.add(new JLabel("5"));
-        panel.add(new JLabel("6"));
-        panel.add(new JLabel("7"));
-        panel.add(new JLabel("8"));
-        panel.add(new JLabel("9"));
-        panel.add(new JLabel("10"));
-        panel.add(new JLabel("11"));
-        panel.add(new JLabel("12"));
-        panel.add(new JLabel("13"));
-        panel.add(new JLabel("14"));
-        panel.add(new JLabel("New Record!"));
-        panel.add(new JLabel("16"));
-        panel.add(new JTextField("Enter name here"));
-        panel.add(new JButton("Save"));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel("Player:", JLabel.CENTER));
+        panel.add(new JLabel("Score:" , JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(1)[0], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(1)[1], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(2)[0], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(2)[1], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(3)[0], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(3)[1], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(4)[0], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(4)[1], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(5)[0], JLabel.CENTER));
+        panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(5)[1], JLabel.CENTER));
+        panel.add(new JLabel(cosmos.getScoring().getHighScore().newRecordCheck()));
+        panel.add(new JLabel(""));
+        
+        playerName = new JTextField("Write here");
+        playerName.setActionCommand(ClickListener.Actions.SAVESCORE.name());
+        playerName.addActionListener(listener);
+        
+        panel.add(playerName);
 
-        JButton newGame = new JButton("New Game");
-        newGame.setActionCommand(ClickListener.Actions.NEWGAME.name());
-        newGame.addActionListener(listener);
+        JButton saveScore = new JButton("Save & Restart");
+        saveScore.setActionCommand(ClickListener.Actions.SAVESCORE.name());
+        saveScore.addActionListener(listener);
+        panel.add(saveScore);
+        
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        
+        
 
+//        JButton newGame = new JButton("New Game");
+////        newGame.setActionCommand(ClickListener.Actions.NEWGAME.name());
+////        newGame.addActionListener(listener);
+//        panel.add(newGame);
 
-        panel.add(newGame);
-
-        panel.add(new JLabel("20"));
 
 
         container.add(panel);
@@ -273,5 +285,9 @@ public class Window extends JPanel {
 
     public void resetScorePanel() {
         this.scorePanel = null;
+    }
+    
+    public JTextField getPlayerTextField() {
+        return this.playerName;
     }
 }

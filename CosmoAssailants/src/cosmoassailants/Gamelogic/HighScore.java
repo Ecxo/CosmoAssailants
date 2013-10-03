@@ -20,13 +20,15 @@ import java.util.logging.Logger;
  */
 public class HighScore {
 
-    private final File scores = new File("scores.txt");
+    private final File scores = new File("CosmoAssailants/scores.txt");
     private Scoring scoring;
     private Scanner fileReader;
 
     public HighScore(Scoring s) {
+        scores.getParentFile().mkdirs();
         this.scoring = s;
         try {
+            scores.createNewFile();
             FileWriter fwriter = new FileWriter(scores, true);
             if (scores.length() < 5) {
                 populateScoreList();
@@ -48,6 +50,7 @@ public class HighScore {
      * @param playername
      */
     public void writeScore(String playername) {
+        System.out.println(scores.getAbsoluteFile());
         if (playername.trim().length() < 1 || playername.equals("Write here") || playername.trim().length() > 20) {
             System.out.println("Not saved, bad name!");
             return;

@@ -38,3 +38,9 @@ Mietitty huipputulostiedostoa. Pelin voi käynnistää uudestaan häviön jälke
 
 26.9.2013 18:30-19
 
+Mietitty huipputuloslistaa.
+
+3.9.2013 16-21
+
+Huipputuloslista toteutettu, kaipaa pientä säätöä tiedoston tallennuspaikan kanssa.
+

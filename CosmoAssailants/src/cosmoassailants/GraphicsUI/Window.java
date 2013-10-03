@@ -9,6 +9,7 @@ import cosmoassailants.Engine.Controls;
 import cosmoassailants.Engine.InputScanner;
 import cosmoassailants.Gamelogic.Enemy;
 import cosmoassailants.Gamelogic.EnemyAssailant;
+import cosmoassailants.Gamelogic.Explosion;
 import cosmoassailants.Gamelogic.Laser;
 import cosmoassailants.Gamelogic.LaserPlayer;
 import java.awt.Color;
@@ -18,7 +19,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -92,6 +95,8 @@ public class Window extends JPanel {
      */
     public void gameRunning(Graphics g) {
         setBackground(Color.black);
+        ImageIcon background = new ImageIcon(this.getClass().getResource("space800.png"));
+        g.drawImage(background.getImage(), WIDTH, WIDTH, null);
 
 
 
@@ -104,6 +109,8 @@ public class Window extends JPanel {
         drawScore(g);
 
         drawLevel(g);
+
+        drawExplosions(g);
 
 
 
@@ -120,14 +127,21 @@ public class Window extends JPanel {
      * @param g
      */
     private void drawLasers(Graphics g) {
+        ImageIcon playerLaser = new ImageIcon(this.getClass().getResource("laserplayer.png"));
+        ImageIcon enemyLaser = new ImageIcon(this.getClass().getResource("laserenemy.png"));
         for (Laser laser : cosmos.getLasers()) {
             g.setColor(Color.GREEN);
             if (laser.isHostile() == true) {
-                g.setColor(Color.MAGENTA);
-                g.fillRect(laser.laserX() + 10, laser.laserY(), 10, 20);
 
+                g.drawImage(enemyLaser.getImage(), laser.laserX() + 10, laser.laserY(), null);
+                //g.setColor(Color.MAGENTA);
+                //g.fillRect(laser.laserX() + 10, laser.laserY(), 10, 20);
+
+            } else {
+                g.drawImage(playerLaser.getImage(), laser.laserX() + 9, laser.laserY(), null);
+                //g.fillRect(laser.laserX() + 10, laser.laserY(), 10, 20);
             }
-            g.fillRect(laser.laserX() + 10, laser.laserY(), 10, 20);
+
 
         }
 
@@ -143,7 +157,11 @@ public class Window extends JPanel {
 
         for (Enemy enemy : cosmos.getEnemies()) {
             if (enemy.isAlive() == true) {
-                g.fill3DRect(enemy.getLocationX() + 5, enemy.getLocationY(), 20, 20, true);
+                ImageIcon enemyShip = new ImageIcon(this.getClass().getResource("enemyship.png"));
+                g.drawImage(enemyShip.getImage(), enemy.getLocationX() + 5, enemy.getLocationY(), null);
+
+
+//                g.fill3DRect(enemy.getLocationX() + 5, enemy.getLocationY(), 20, 20, true);
             }
 
         }
@@ -155,8 +173,11 @@ public class Window extends JPanel {
      * @param g
      */
     private void drawPlayer(Graphics g) {
-        g.setColor(Color.RED);
-        g.fillOval(cosmos.getPlayer().getLocationX(), cosmos.getPlayer().getLocationY(), 30, 30);
+        ImageIcon playerShip = new ImageIcon(this.getClass().getResource("playership.png"));
+        g.drawImage(playerShip.getImage(), cosmos.getPlayer().getLocationX() - 2, cosmos.getPlayer().getLocationY(), null);
+
+//        g.setColor(Color.RED);
+//        g.fillOval(cosmos.getPlayer().getLocationX(), cosmos.getPlayer().getLocationY(), 30, 30);
     }
 
     /**
@@ -242,7 +263,7 @@ public class Window extends JPanel {
 
         panel.add(new JLabel(""));
         panel.add(new JLabel("Player:", JLabel.CENTER));
-        panel.add(new JLabel("Score:" , JLabel.CENTER));
+        panel.add(new JLabel("Score:", JLabel.CENTER));
         panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(1)[0], JLabel.CENTER));
         panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(1)[1], JLabel.CENTER));
         panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(2)[0], JLabel.CENTER));
@@ -255,22 +276,22 @@ public class Window extends JPanel {
         panel.add(new JLabel(this.cosmos.getScoring().getHighScore().getPlayerNameScore(5)[1], JLabel.CENTER));
         panel.add(new JLabel(cosmos.getScoring().getHighScore().newRecordCheck()));
         panel.add(new JLabel(""));
-        
+
         playerName = new JTextField("Write here");
         playerName.setActionCommand(ClickListener.Actions.SAVESCORE.name());
         playerName.addActionListener(listener);
-        
+
         panel.add(playerName);
 
         JButton saveScore = new JButton("Save & Restart");
         saveScore.setActionCommand(ClickListener.Actions.SAVESCORE.name());
         saveScore.addActionListener(listener);
         panel.add(saveScore);
-        
+
         panel.add(new JLabel(""));
         panel.add(new JLabel(""));
-        
-        
+
+
 
 //        JButton newGame = new JButton("New Game");
 ////        newGame.setActionCommand(ClickListener.Actions.NEWGAME.name());
@@ -286,8 +307,42 @@ public class Window extends JPanel {
     public void resetScorePanel() {
         this.scorePanel = null;
     }
-    
+
     public JTextField getPlayerTextField() {
         return this.playerName;
+    }
+
+    private void drawExplosions(Graphics g) {
+        ImageIcon explosion1 = new ImageIcon(this.getClass().getResource("explosion1.png"));
+        ImageIcon explosion2 = new ImageIcon(this.getClass().getResource("explosion2.png"));
+        ImageIcon explosion3 = new ImageIcon(this.getClass().getResource("explosion3.png"));
+
+        for (Explosion explosion : this.cosmos.getExplosions()) {
+            if (explosion.getExploding() == true) {
+                System.out.println();
+
+                if (explosion.getExplosionCounter() == 0) {
+                    g.drawImage(explosion1.getImage(), explosion.getX()-16, explosion.getY()-20, null);
+                    explosion.explode();
+                    System.out.println("e1");
+                    break;
+                }
+                if (explosion.getExplosionCounter() == 1) {
+                    g.drawImage(explosion2.getImage(), explosion.getX()-22, explosion.getY()-28, null);
+                    explosion.explode();
+                    System.out.println("e2");
+                    break;
+                }
+                if (explosion.getExplosionCounter() == 2) {
+                    g.drawImage(explosion3.getImage(), explosion.getX()-16, explosion.getY()-20, null);
+                    explosion.explode();
+                    System.out.println("e3");
+                    break;
+                }
+
+
+            }
+        }
+
     }
 }

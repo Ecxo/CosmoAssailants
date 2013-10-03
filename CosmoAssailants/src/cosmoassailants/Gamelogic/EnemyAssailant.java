@@ -159,7 +159,10 @@ public class EnemyAssailant implements Enemy {
      */
 
     public void moveDown() {
+        if (this.locationY < 400) {
         this.locationY += gameValues.ARENA_STEPSIZE * 2;
+        }
+        
     }
     
     /**

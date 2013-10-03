@@ -40,7 +40,7 @@ Mietitty huipputulostiedostoa. Pelin voi käynnistää uudestaan häviön jälke
 
 Mietitty huipputuloslistaa.
 
-3.9.2013 16-22
+3.9.2013 16-01:30
 
-Huipputuloslista toteutettu, kaipaa pientä säätöä tiedoston tallennuspaikan kanssa.
+Huipputuloslista toteutettu, kaipaa pientä säätöä tiedoston tallennuspaikan kanssa. Lisätty grafiikat ja räjähdykset.
 

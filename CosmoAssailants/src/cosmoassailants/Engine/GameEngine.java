@@ -60,7 +60,7 @@ public class GameEngine extends Thread {
 
     private void waiting() {
         try {
-            Thread.sleep(1000 / 30);
+            Thread.sleep(1000/30);
         } catch (InterruptedException ex) {
             System.exit(0);
         }

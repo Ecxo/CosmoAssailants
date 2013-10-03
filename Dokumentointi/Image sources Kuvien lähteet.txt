@@ -1,0 +1,26 @@
+Lasers:
+CC0 licence
+http://opengameart.org/content/lasers-and-beams
+
+Space:
+CC0 licence
+http://opengameart.org/content/space-backgrounds
+
+Enemies:
+CC0 licence
+http://opengameart.org/content/alien-sprite-sheet
+
+Player:
+CC0 licence
+http://opengameart.org/content/spaceship-6
+
+Explosions:
+CC0 licence
+http://opengameart.org/content/more-explosions
+
+
+
+
+
+
+

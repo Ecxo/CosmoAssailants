@@ -59,6 +59,7 @@ public class LaserPlayer implements Laser {
         for (Enemy enemy : this.enemies) {
             if (enemy.getLocationX() == laserX() && enemy.getLocationY() == this.locationY && enemy.isAlive()) {
                 enemy.hasDied();
+                this.cosmos.newExplosion(enemy);
                 this.cosmos.getScoring().increaseScore();
                 System.out.println("Score: "+cosmos.getScoring().getScore());
                 

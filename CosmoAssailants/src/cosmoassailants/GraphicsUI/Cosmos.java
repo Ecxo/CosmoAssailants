@@ -8,6 +8,7 @@ import cosmoassailants.Engine.GameEngine;
 import cosmoassailants.Gamelogic.DifficultyLevel;
 import cosmoassailants.Gamelogic.Enemy;
 import cosmoassailants.Gamelogic.EnemyAssailant;
+import cosmoassailants.Gamelogic.Explosion;
 import cosmoassailants.Gamelogic.Laser;
 import cosmoassailants.Gamelogic.LaserEnemy;
 import cosmoassailants.Gamelogic.LaserPlayer;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 /**
  * Graphics of the game world
+ *
  * @author ptpihlaj
  */
 public class Cosmos {
@@ -27,6 +29,7 @@ public class Cosmos {
     private Scoring score;
     private DifficultyLevel level;
     private GameEngine engine;
+    private ArrayList<Explosion> explosions;
 
     public Cosmos() {
         this.player = new Player();
@@ -36,13 +39,13 @@ public class Cosmos {
         this.level = new DifficultyLevel(this);
         this.enemies = new ArrayList<Enemy>();
         this.enemies.addAll(level.getListEnemies());
+        this.explosions = new ArrayList<Explosion>();
 
     }
-    
+
     /**
      * Resets everything to restart game
      */
-
     public void restartCosmos() {
         player.reset();
         lasers.clear();
@@ -65,22 +68,19 @@ public class Cosmos {
         return this.lasers;
 
     }
-    
-    
+
     /**
      * Adds a new laser to the ArrayList when player shoots.
      */
-
     public void shootLaser() {
         this.lasers.add(new LaserPlayer(this.player.getLocationX(), this.player.getLocationY(), this));
         this.score.loseScoreShot();
         System.out.println(this.enemies.size());
     }
-    
+
     /**
      * Updates all the objects in the game
      */
-
     public void updateGame() {
         if (this.player.playerAlive()) {
 
@@ -118,12 +118,12 @@ public class Cosmos {
     public Scoring getScoring() {
         return this.score;
     }
-    
+
     /**
      * Checks if ArrayList contains any enemies that are still alive.
+     *
      * @return boolean
      */
-
     public boolean enemiesLeft() {
         for (Enemy enemy : this.enemies) {
             if (enemy.isAlive()) {
@@ -136,11 +136,10 @@ public class Cosmos {
     public DifficultyLevel getLevel() {
         return this.level;
     }
-    
+
     /**
      * Kills every enemy on screen.
      */
-
     public void cheatButton() {
         for (Enemy enemy : this.enemies) {
             enemy.hasDied();
@@ -153,5 +152,14 @@ public class Cosmos {
 
     public GameEngine getEngine() {
         return this.engine;
+    }
+
+    public void newExplosion(Enemy enemy) {
+        this.explosions.add(new Explosion(enemy.getLocationX(), enemy.getLocationY()));
+
+    }
+
+    public ArrayList<Explosion> getExplosions() {
+        return this.explosions;
     }
 }

@@ -3,3 +3,8 @@ John#400
 George#300
 Ringo#200
 Eino#100
+Petri#100
+Petri#690
+Petri#240
+Write here  #200
+Write here #280

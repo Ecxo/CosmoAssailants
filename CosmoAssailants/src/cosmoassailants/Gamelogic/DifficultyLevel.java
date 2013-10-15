@@ -80,8 +80,6 @@ public class DifficultyLevel {
 
             list.add(createdEnemy);
 
-            System.out.println(list.size());
-
 
 
         }

@@ -57,8 +57,6 @@ public class Window extends JPanel {
      * Draws the game world if player alive, if player is dead draws gameOver
      * screen.
      *
-     * @see #gameRunning(graphics)
-     * @see #gameOver(graphics)
      * @param g
      */
     public void paint(Graphics g) {
@@ -322,21 +320,21 @@ public class Window extends JPanel {
                 System.out.println();
 
                 if (explosion.getExplosionCounter() == 0) {
-                    g.drawImage(explosion1.getImage(), explosion.getX()-16, explosion.getY()-20, null);
+                    g.drawImage(explosion1.getImage(), explosion.getX()-16, explosion.getY()-24, null);
                     explosion.explode();
-                    System.out.println("e1");
+
                     break;
                 }
                 if (explosion.getExplosionCounter() == 1) {
-                    g.drawImage(explosion2.getImage(), explosion.getX()-22, explosion.getY()-28, null);
+                    g.drawImage(explosion2.getImage(), explosion.getX()-22, explosion.getY()-32, null);
                     explosion.explode();
-                    System.out.println("e2");
+
                     break;
                 }
                 if (explosion.getExplosionCounter() == 2) {
-                    g.drawImage(explosion3.getImage(), explosion.getX()-16, explosion.getY()-20, null);
+                    g.drawImage(explosion3.getImage(), explosion.getX()-16, explosion.getY()-24, null);
                     explosion.explode();
-                    System.out.println("e3");
+
                     break;
                 }
 

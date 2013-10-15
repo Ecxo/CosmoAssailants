@@ -1,4 +1,0 @@
-CosmoAssailants
-===============
-
-Klooni Space Invadersista

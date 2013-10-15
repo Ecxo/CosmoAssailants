@@ -38,6 +38,7 @@ public class ScoringTest {
 
     @Before
     public void setUp() {
+        Cosmos cosmos = new Cosmos();
 
 
     }

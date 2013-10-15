@@ -1,4 +1,6 @@
 
 Nuolinäppäimet siirtävät alusta sivuttaissuunnassa, välilyönti ampuu.
 
-Jos teet ennätyksen, syötettävän nimen on oltava yli 0 ja alle 20 merkkiä pitkä.
+Jos teet ennätyksen, syötettävän nimen on oltava yli 0 ja alle 20 merkkiä pitkä eikä se saa sisältää #-merkkiä. Epäkelpo nimi ei mene ennätyslistaan ja ennätys hylätään.
+
+

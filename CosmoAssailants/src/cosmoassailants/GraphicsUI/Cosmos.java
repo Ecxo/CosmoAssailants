@@ -75,7 +75,6 @@ public class Cosmos {
     public void shootLaser() {
         this.lasers.add(new LaserPlayer(this.player.getLocationX(), this.player.getLocationY(), this));
         this.score.loseScoreShot();
-        System.out.println(this.enemies.size());
     }
 
     /**

@@ -5,22 +5,28 @@
 package cosmoassailants.Gamelogic;
 
 /**
- *
+ * Explosion in the game world.
  * @author ptpihlaj
  */
 public class Explosion {
     int locationX;
     int locationY;
     boolean exploding;
-    int explosionCounter;
+    private int explosionCounter;
     
     public Explosion(int x, int y) {
         this.locationX = x;
         this.locationY = y;
         exploding = true;
-        int explosionCounter = 0;
+        explosionCounter = 0;
         
     }
+    
+    /**
+     * Increases explosionCounter by one and sets exploding to false if explosion ends.
+     * 
+     */
+    
     
     public void explode() {
         explosionCounter++;

@@ -61,7 +61,6 @@ public class LaserPlayer implements Laser {
                 enemy.hasDied();
                 this.cosmos.newExplosion(enemy);
                 this.cosmos.getScoring().increaseScore();
-                System.out.println("Score: "+cosmos.getScoring().getScore());
                 
             }
         }

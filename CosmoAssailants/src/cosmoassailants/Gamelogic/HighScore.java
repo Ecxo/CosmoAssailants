@@ -51,7 +51,7 @@ public class HighScore {
      */
     public void writeScore(String playername) {
         System.out.println(scores.getAbsoluteFile());
-        if (playername.trim().length() < 1 || playername.equals("Write here") || playername.trim().length() > 20) {
+        if (playername.trim().length() < 1 || playername.equals("Write here") || playername.contains("#") || playername.trim().length() > 20) {
             System.out.println("Not saved, bad name!");
             return;
         }
@@ -64,7 +64,8 @@ public class HighScore {
             fwriter.close();
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Error in high score creation!");
+            
         }
 
     }
@@ -153,7 +154,7 @@ public class HighScore {
     }
 
     /**
-     * If score list is empty, creates fake records.
+     * Creates fake records.
      */
     private void populateScoreList() {
 
@@ -169,14 +170,14 @@ public class HighScore {
             fwriter.close();
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Error in populating score list! ");
         }
     }
 
     /**
      * Compares score to the old scores and gives a cheerful text
      *
-     * @return
+     * @return score as string
      */
     public String newRecordCheck() {
         String record = "No record, try again!";

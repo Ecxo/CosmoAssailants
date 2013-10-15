@@ -1,0 +1,29 @@
+
+Aihe: Cosmo Assailants
+Space Invadersin kaltainen peli, jossa pelaaja yrittää ampua vihollisia samalla väistellen vihollisen ammuksia. Viholliset ampuvat satunnaisesti ja ampumistodennäköisyys ja vihollisten määrä kasvaa pelaajan päästessä seuraavalle tasolle tuhottuaan kaikki viholliset. Pistelasku.
+
+Käyttäjät: Pelaaja
+
+Kaikkien käyttäjien toiminnot:
+
+- Aluksen ohjaus
+- Ampuminen
+- Ennätystuloksen nimen syöttö ja katselu
+
+Ohjelman rakenne.
+
+Luokka Cosmos ylläpitää pelin tärkeimpiä osia; pelaajaa ja kolmea eri listaa vihollisista, lasereista ja räjähdyksistä. 
+1. Peliin liittyy aina Player-olio jota pelaaja ohjaa näppäimistöllä. 
+2. Viholliset ovat rajapintaluokan Enemy toteuttavia oliota, tässä versiossa peliä ainoa vihollistyyppi on Assailant.
+3. Laserit toteuttavat rajapinnan Laser, vihollisten ampumat laserit ovat tyypiltään LaserEnemy ja pelaajan laserPlayer.
+4. Pelaajan laserin osuessa viholliseen luodaan räjähdys räjähdyslistalle, räjähdys kestää 3 ruudunpäivitystä.
+
+
+
+
+
+
+
+
+
+

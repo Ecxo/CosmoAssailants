@@ -7,14 +7,11 @@ package cosmoassailants.Engine;
 import java.util.Random;
 
 /**
- *
+ * Controls the players maximum fire rate
  * @author ptpihlaj
  */
 public class FireRateTimer {
     
-    /**
-     * Controls players maximum fire rate.
-     */
 
     private long previousShot;
     private long previousEnemyShot;

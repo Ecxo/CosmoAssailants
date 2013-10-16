@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package CosmoAssailantTests;
+package CosmoAssailantsTests;
 
 import cosmoassailants.GraphicsUI.Cosmos;
 import cosmoassailants.Gamelogic.Enemy;
@@ -20,6 +20,8 @@ import static org.junit.Assert.*;
  */
 public class EnemyAssailantTest {
 
+    Cosmos cosmos;
+
     public EnemyAssailantTest() {
     }
 
@@ -33,6 +35,7 @@ public class EnemyAssailantTest {
 
     @Before
     public void setUp() {
+        cosmos = new Cosmos();
     }
 
     @After
@@ -41,23 +44,27 @@ public class EnemyAssailantTest {
 
     @Test
     public void assailantCanMove() {
-        Enemy enemyTest = new EnemyAssailant(400, 100) {
-        };
+        Enemy enemyTest = new EnemyAssailant(400, 100);
+        
         int enemyStartX = enemyTest.getLocationX();
         int enemyStartY = enemyTest.getLocationY();
+        
         enemyTest.setMoveSpeed(1); // To make enemies move every update
         enemyTest.move();
         enemyTest.move();
+        
         assertEquals(enemyStartX + 20 + 20, enemyTest.getLocationX());
     }
 
     @Test
     public void assailantCanNotMoveThroughWall() {
-        Cosmos cosmos = new Cosmos();
+
         Enemy enemy = cosmos.getEnemies().get(0);
         enemy.setMoveSpeed(1);
+        
         int enemyLocation = enemy.getLocationX();
         int distancetoEdge = Math.abs(enemyLocation - 700);
+        
         System.out.println(distancetoEdge);
         distancetoEdge = distancetoEdge / 20;
         int distancetoEdge2 = distancetoEdge;
@@ -75,7 +82,7 @@ public class EnemyAssailantTest {
         assertEquals(700, enemy.getLocationX());
 
         enemy.move();
-        
+
         assertEquals(680, enemy.getLocationX());
 
 

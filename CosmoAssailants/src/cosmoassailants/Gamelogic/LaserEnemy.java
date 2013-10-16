@@ -61,7 +61,6 @@ public class LaserEnemy implements Laser {
 
     private void laserPlayerCheck() {
         if (this.locationX == player.getLocationX() && this.locationY == player.getLocationY()) {
-            System.out.println("YOU DIED!");
             player.setAsDead();
         }
     }

@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package CosmoAssailantTests;
+package CosmoAssailantsTests;
 
+import cosmoassailants.Gamelogic.DifficultyLevel;
 import cosmoassailants.GraphicsUI.Cosmos;
-import cosmoassailants.Gamelogic.LaserPlayer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author ptpihlaj
  */
-public class CosmoAssailantTest {
+public class DifficultyLevelTest {
 
-    public CosmoAssailantTest() {
+    public DifficultyLevelTest() {
     }
 
     @BeforeClass
@@ -37,14 +37,15 @@ public class CosmoAssailantTest {
     @After
     public void tearDown() {
     }
-    
+
     @Test
-    public void hello() {}
-    
+    public void shootingChanceIncreases() {
+        Cosmos cosmos = new Cosmos();
+        DifficultyLevel diff = new DifficultyLevel(cosmos);
+        double difficulty = diff.getShootingChance();
+        diff.increaseDifficulty();
+        assertEquals(difficulty+0.005, diff.getShootingChance(), 0.0005);
 
-    
+
+    }
 }
-    
-
-    
-    

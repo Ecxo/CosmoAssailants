@@ -1,4 +1,4 @@
-package CosmoAssailantTests;
+package CosmoAssailantsTests;
 
 /*
  * To change this template, choose Tools | Templates
@@ -22,6 +22,8 @@ import static org.junit.Assert.*;
  * @author ptpihlaj
  */
 public class LaserTest {
+    
+    Cosmos cosmos;
 
     public LaserTest() {
     }
@@ -36,6 +38,7 @@ public class LaserTest {
 
     @Before
     public void setUp() {
+        cosmos = new Cosmos();
     }
 
     @After
@@ -44,7 +47,6 @@ public class LaserTest {
 
     @Test
     public void laserCanMove() {
-        Cosmos cosmos = new Cosmos();
         LaserPlayer laser = new LaserPlayer(400, 700, cosmos);
 
         assertEquals(400, laser.laserX());
@@ -59,7 +61,6 @@ public class LaserTest {
 
     @Test
     public void laserKillsEnemy() {
-        Cosmos cosmos = new Cosmos();
         int firstEnemyX = cosmos.getEnemies().get(0).getLocationX();
         int firstEnemyY = cosmos.getEnemies().get(0).getLocationY();
 
@@ -97,7 +98,6 @@ public class LaserTest {
     
     @Test
     public void laserIsAddedToArrayList() {
-        Cosmos cosmos = new Cosmos();
         
         assertEquals(0, cosmos.getLasers().size());
         cosmos.shootLaser();

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package CosmoAssailantTests;
+package CosmoAssailantsTests;
 
 import cosmoassailants.Gamelogic.Enemy;
 import cosmoassailants.Gamelogic.EnemyAssailant;

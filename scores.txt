@@ -3,4 +3,3 @@ John#400
 George#300
 Ringo#200
 Eino#100
-Write herefsd#210

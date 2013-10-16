@@ -321,19 +321,19 @@ public class Window extends JPanel {
 
                 if (explosion.getExplosionCounter() == 0) {
                     g.drawImage(explosion1.getImage(), explosion.getX()-16, explosion.getY()-24, null);
-                    explosion.explode();
+
 
                     break;
                 }
                 if (explosion.getExplosionCounter() == 1) {
                     g.drawImage(explosion2.getImage(), explosion.getX()-22, explosion.getY()-32, null);
-                    explosion.explode();
+
 
                     break;
                 }
                 if (explosion.getExplosionCounter() == 2) {
                     g.drawImage(explosion3.getImage(), explosion.getX()-16, explosion.getY()-24, null);
-                    explosion.explode();
+
 
                     break;
                 }

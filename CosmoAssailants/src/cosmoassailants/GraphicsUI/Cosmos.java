@@ -82,6 +82,11 @@ public class Cosmos {
      */
     public void updateGame() {
         if (this.player.playerAlive()) {
+            
+            for(Explosion explosion: this.explosions) {
+                explosion.explode();
+                
+            }
 
 
 
